@@ -1,7 +1,7 @@
 name: fatima
 description: A UI Framework for Flutter.
 version: 0.0.1
-homepage: "https://smae.ir"
+homepage: "https://github.com/smae1993/fatima"
 
 environment:
   sdk: '>=2.18.0 <3.0.0'
@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:
