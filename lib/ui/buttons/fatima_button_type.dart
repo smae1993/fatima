@@ -1,4 +1,4 @@
-enum FButtonType {
+enum FatimaBtnType {
   contained,
   text,
   outlined,

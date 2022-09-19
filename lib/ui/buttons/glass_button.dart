@@ -1,9 +1,7 @@
-import 'package:fatima/buttons/fatima_button.dart';
+import 'package:fatima/ui/buttons/fatima_button.dart';
 import 'package:flutter/material.dart';
 
-class FOutlinedButton extends FButton {
-  FOutlinedButton({super.key});
-
+class FatimaGlassButton extends FatimaBtn {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

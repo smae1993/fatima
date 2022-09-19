@@ -3,7 +3,8 @@ library fatima;
 import 'package:fatima/fatima_config.dart';
 
 export 'fatima_main.dart';
-export 'fatima_button_extension.dart';
+export 'ui/buttons/fatima_button_extension.dart';
+export 'ui/widgets/fatima_widgets_extension.dart';
 
 var fatimaConfig = FatimaConfig();
 
