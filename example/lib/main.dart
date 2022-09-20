@@ -6,7 +6,12 @@ import 'package:get/get.dart';
 
 void main() {
   fatimaConfig = FatimaConfig();
-  runApp(const MyApp());
+  runApp(FatimaApp(
+    initialRoute: "/",
+    routes: {
+      '/': (context) => HomePage(),
+    },
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -15,6 +20,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // return MaterialApp(
+    //   routes: ,
+    // );
+
     return GetMaterialApp(
       title: 'سید محمد امین عمرانی',
       defaultTransition: Transition.fade,

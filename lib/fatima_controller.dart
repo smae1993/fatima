@@ -1,9 +1,9 @@
+import 'package:fatima/sotrage/storage.dart';
+import 'package:fatima/state_manager/controller/controller.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 
-class FatimaController extends GetxController {
-  final _box = GetStorage();
+class FatimaController extends Controller {
+  final _box = Storage();
 
   bool isDark() => _box.read("isDark") ?? false;
   Color textColor() => Color(_box.read("textColor") ?? 0xFF292929);

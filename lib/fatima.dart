@@ -8,6 +8,7 @@ export 'state_manager/state_manager.dart';
 export 'ui/buttons/fatima_button_extension.dart';
 export 'ui/widgets/fatima_widgets_extension.dart';
 export 'instance/instance_extension.dart';
+export 'fatima_app.dart';
 
 var fatimaConfig = FatimaConfig();
 

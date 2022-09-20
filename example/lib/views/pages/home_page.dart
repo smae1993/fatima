@@ -9,12 +9,11 @@ class HomePage extends View<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text(controller.i.toString()),
-      // body: Updater<HomeController>(
-      //   builder: (controller) {
-      //     return Text(controller.i.toString());
-      //   },
-      // ),
+      body: Updater<HomeController>(
+        builder: (controller) {
+          return Text(controller.i.toString());
+        },
+      ),
     );
   }
 }
