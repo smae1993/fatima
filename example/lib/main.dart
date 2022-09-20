@@ -1,3 +1,4 @@
+import 'package:example/views/pages/home_page.dart';
 import 'package:fatima/fatima.dart';
 import 'package:fatima/fatima_config.dart';
 import 'package:flutter/material.dart';
@@ -25,10 +26,10 @@ class MyApp extends StatelessWidget {
       // darkTheme: themeController.darkTheme,
       // themeMode: themeController.theme,
       // initialRoute: '/',
-      // getPages: [
-      //   GetPage(name: '/', page: () => HomePage()),
-      //   // GetPage(name: '/home', page: () => HomePage()),
-      // ],
+      getPages: [
+        GetPage(name: '/', page: () => HomePage()),
+        // GetPage(name: '/home', page: () => HomePage()),
+      ],
     );
   }
 }
