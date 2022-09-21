@@ -1,6 +1,8 @@
-import 'package:fatima/sotrage/storage.dart';
-import 'package:fatima/state_manager/controller/controller.dart';
+// import 'package:fatima/storage/fatima_storage.dart';
+// import 'package:fatima/state_manager/controller/controller.dart';
 import 'package:flutter/material.dart';
+
+import 'fatima.dart';
 
 class FatimaController extends Controller {
   final _box = Storage();

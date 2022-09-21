@@ -1,8 +1,9 @@
 import 'package:fatima/fatima.dart';
 import 'package:fatima/fatima_interface.dart';
-import 'package:fatima/navigation/router_report.dart';
-import 'package:fatima/state_manager/controller/lifecycle.dart';
-import 'package:fatima/core/smart_management.dart';
+import 'package:fatima/navigation/src/router_report.dart';
+// import 'package:fatima/navigation/router_report.dart';
+// import 'package:fatima/state_manager/controller/lifecycle.dart';
+// import 'package:fatima/core/smart_management.dart';
 import 'package:flutter/material.dart';
 
 class InstanceInfo {
@@ -232,7 +233,7 @@ extension Inst on FatimaInterface {
     return i;
   }
 
-  S putOrFind<S>(InstanceBuilderCallback<S> dep, {String? tag}) {
+  S registerOrFind<S>(InstanceBuilderCallback<S> dep, {String? tag}) {
     final key = _getKey(S, tag);
 
     if (_singl.containsKey(key)) {

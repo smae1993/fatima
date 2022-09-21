@@ -1,5 +1,6 @@
 import 'package:example/controllers/home_controller.dart';
 import 'package:fatima/fatima.dart';
+import 'package:fatima/state_manager/src/view/updater.dart';
 import 'package:fatima/ui/widgets/responsive_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
