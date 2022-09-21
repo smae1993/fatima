@@ -363,7 +363,7 @@ extension Inst on FatimaInterface {
     }
     final i = builder.dependency;
 
-    if (i is GetxServiceMixin && !force) {
+    if (i is FatimaServiceMixin && !force) {
       return false;
     }
 
@@ -436,7 +436,7 @@ extension Inst on FatimaInterface {
 
     final i = builder.dependency;
 
-    if (i is GetxServiceMixin && !force) {
+    if (i is FatimaServiceMixin && !force) {
       return;
     }
 

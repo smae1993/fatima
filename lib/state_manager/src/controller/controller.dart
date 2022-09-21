@@ -1,6 +1,4 @@
 // ignore: prefer_mixin
-// import 'package:fatima/state_manager/controller/lifecycle.dart';
-// import 'package:fatima/state_manager/controller/list_notifier.dart';
 
 import 'package:fatima/fatima.dart';
 import 'package:flutter/material.dart';
@@ -86,9 +84,7 @@ abstract class Controller extends ListNotifier with LifeCycleMixin {
 
 /// A controller with super lifecycles (including native lifecycles)
 abstract class FullLifeCycleController extends Controller
-    with
-        // ignore: prefer_mixin
-        WidgetsBindingObserver {}
+    with WidgetsBindingObserver {}
 
 mixin FullLifeCycleMixin on FullLifeCycleController {
   @mustCallSuper

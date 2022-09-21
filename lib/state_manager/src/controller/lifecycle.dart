@@ -67,4 +67,4 @@ mixin LifeCycleMixin {
 //   }
 }
 
-mixin GetxServiceMixin {}
+mixin FatimaServiceMixin {}
