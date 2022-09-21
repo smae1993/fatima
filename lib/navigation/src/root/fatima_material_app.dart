@@ -6,13 +6,6 @@ import 'package:flutter/material.dart';
 
 import 'package:fatima/fatima.dart';
 
-// import '../../../get_core/get_core.dart';
-// import '../../../get_instance/get_instance.dart';
-// import '../../../get_state_manager/get_state_manager.dart';
-// import '../../../get_utils/get_utils.dart';
-// import '../../fatima_navigation.dart';
-// import '../router_report.dart';
-
 class FatimaApp extends StatelessWidget {
   final GlobalKey<NavigatorState>? navigatorKey;
   final GlobalKey<ScaffoldMessengerState>? scaffoldMessengerKey;
@@ -64,7 +57,7 @@ class FatimaApp extends StatelessWidget {
   final List<Bind> binds;
   final Duration? transitionDuration;
   final bool? defaultGlobalState;
-  final List<FatimaPage>? getPages;
+  final List<FatimaPage>? fatimaPages;
   final FatimaPage? unknownRoute;
   final RouteInformationProvider? routeInformationProvider;
   final RouteInformationParser<Object>? routeInformationParser;
@@ -116,7 +109,7 @@ class FatimaApp extends StatelessWidget {
     this.onDispose,
     this.routingCallback,
     this.defaultTransition,
-    this.getPages,
+    this.fatimaPages,
     this.opaqueRoute,
     this.enableLog = kDebugMode,
     this.logWriterCallback,
@@ -135,7 +128,7 @@ class FatimaApp extends StatelessWidget {
         routerDelegate = null,
         super(key: key);
 
-  FatimaApp.router({
+  const FatimaApp.router({
     Key? key,
     this.routeInformationProvider,
     this.scaffoldMessengerKey,
@@ -184,7 +177,7 @@ class FatimaApp extends StatelessWidget {
     this.binds = const [],
     this.transitionDuration,
     this.defaultGlobalState,
-    this.getPages,
+    this.fatimaPages,
     this.navigatorObservers,
     this.unknownRoute,
   })  : navigatorKey = null,
@@ -210,7 +203,7 @@ class FatimaApp extends StatelessWidget {
               defaultTransition: defaultTransition,
               enableLog: enableLog,
               fallbackLocale: fallbackLocale,
-              getPages: getPages,
+              fatimaPages: fatimaPages,
               home: home,
               initialRoute: initialRoute,
               locale: locale,

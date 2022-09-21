@@ -7,10 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-// import '../../../get_instance/src/bindings_interface.dart';
-// import '../../../get_state_manager/src/simple/get_state.dart';
 import 'package:fatima/fatima.dart';
-// import '../../fatima_navigation.dart';
 
 class FatimaPage<T> extends Page<T> {
   final FatimaPageBuilder page;
@@ -161,13 +158,13 @@ class FatimaPage<T> extends Page<T> {
   @override
   Route<T> createRoute(BuildContext context) {
     // return FatimaPageRoute<T>(settings: this, page: page);
-    final _page = PageRedirect(
+    final page = PageRedirect(
       route: this,
       settings: this,
       unknownRoute: unknownRoute,
     ).getPageToRoute<T>(this, unknownRoute, context);
 
-    return _page;
+    return page;
   }
 
   static PathDecoded _nameToRegex(String path) {

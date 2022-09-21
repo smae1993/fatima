@@ -3,11 +3,12 @@
 // import 'package:fatima/state_manager/controller/list_notifier.dart';
 
 import 'package:fatima/fatima.dart';
+import 'package:flutter/material.dart';
 
 abstract class Controller extends ListNotifier with LifeCycleMixin {
-  /// Rebuilds `GetBuilder` each time you call `update()`;
+  /// Rebuilds `Updater` each time you call `update()`;
   /// Can take a List of [ids], that will only update the matching
-  /// `GetBuilder( id: )`,
+  /// `Updater( id: )`,
   /// [ids] can be reused among `GetBuilders` like group tags.
   /// The update will only notify the Widgets, if [condition] is true.
   void update([List<Object>? ids, bool condition = true]) {
@@ -84,47 +85,47 @@ abstract class Controller extends ListNotifier with LifeCycleMixin {
 //     with FullLifeCycleMixin, StateMixin<T> {}
 
 /// A controller with super lifecycles (including native lifecycles)
-// abstract class FullLifeCycleController extends GetxController
-//     with
-//         // ignore: prefer_mixin
-//         WidgetsBindingObserver {}
+abstract class FullLifeCycleController extends Controller
+    with
+        // ignore: prefer_mixin
+        WidgetsBindingObserver {}
 
-// mixin FullLifeCycleMixin on FullLifeCycleController {
-//   @mustCallSuper
-//   @override
-//   void onInit() {
-//     super.onInit();
-//     ambiguate(Engine.instance)!.addObserver(this);
-//   }
+mixin FullLifeCycleMixin on FullLifeCycleController {
+  @mustCallSuper
+  @override
+  void onInit() {
+    super.onInit();
+    ambiguate(Engine.instance)!.addObserver(this);
+  }
 
-//   @mustCallSuper
-//   @override
-//   void onClose() {
-//     ambiguate(Engine.instance)!.removeObserver(this);
-//     super.onClose();
-//   }
+  @mustCallSuper
+  @override
+  void onClose() {
+    ambiguate(Engine.instance)!.removeObserver(this);
+    super.onClose();
+  }
 
-//   @mustCallSuper
-//   @override
-//   void didChangeAppLifecycleState(AppLifecycleState state) {
-//     switch (state) {
-//       case AppLifecycleState.resumed:
-//         onResumed();
-//         break;
-//       case AppLifecycleState.inactive:
-//         onInactive();
-//         break;
-//       case AppLifecycleState.paused:
-//         onPaused();
-//         break;
-//       case AppLifecycleState.detached:
-//         onDetached();
-//         break;
-//     }
-//   }
+  @mustCallSuper
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    switch (state) {
+      case AppLifecycleState.resumed:
+        onResumed();
+        break;
+      case AppLifecycleState.inactive:
+        onInactive();
+        break;
+      case AppLifecycleState.paused:
+        onPaused();
+        break;
+      case AppLifecycleState.detached:
+        onDetached();
+        break;
+    }
+  }
 
-//   void onResumed() {}
-//   void onPaused() {}
-//   void onInactive() {}
-//   void onDetached() {}
-// }
+  void onResumed() {}
+  void onPaused() {}
+  void onInactive() {}
+  void onDetached() {}
+}

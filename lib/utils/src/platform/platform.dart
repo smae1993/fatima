@@ -1,7 +1,7 @@
 import 'platform_web.dart' if (dart.library.io) 'platform_io.dart';
 
 // ignore: avoid_classes_with_only_static_members
-class GetPlatform {
+class FatimaPlatform {
   static bool get isWeb => GeneralPlatform.isWeb;
 
   static bool get isMacOS => GeneralPlatform.isMacOS;
@@ -16,8 +16,10 @@ class GetPlatform {
 
   static bool get isFuchsia => GeneralPlatform.isFuchsia;
 
-  static bool get isMobile => GetPlatform.isIOS || GetPlatform.isAndroid;
+  static bool get isMobile => FatimaPlatform.isIOS || FatimaPlatform.isAndroid;
 
   static bool get isDesktop =>
-      GetPlatform.isMacOS || GetPlatform.isWindows || GetPlatform.isLinux;
+      FatimaPlatform.isMacOS ||
+      FatimaPlatform.isWindows ||
+      FatimaPlatform.isLinux;
 }

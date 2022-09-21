@@ -80,7 +80,7 @@ class FatimaDelegate extends RouterDelegate<RouteDecoder>
             body: Center(child: Text('Route not found')),
           ),
         ) {
-    if (!showHashOnUrl && GetPlatform.isWeb) setUrlStrategy();
+    if (!showHashOnUrl && FatimaPlatform.isWeb) setUrlStrategy();
     addPages(pages);
     addPage(notFoundRoute);
     Fatima.log('FatimaDelegate is created !');

@@ -5,43 +5,39 @@ import 'package:flutter/material.dart';
 // import 'package:get/get.dart';
 
 void main() {
-  fatimaConfig = FatimaConfig();
-  runApp(FatimaApp(
-    initialRoute: "/",
-    routes: {
-      '/': (context) => HomePage(),
-    },
-  ));
+  // fatimaConfig = FatimaConfig();
+  runApp(MyApp());
 }
 
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     // return MaterialApp(
-//     //   routes: ,
-//     // );
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    // return MaterialApp(
+    //   routes: ,
+    // );
 
-//     return GetMaterialApp(
-//       title: 'سید محمد امین عمرانی',
-//       defaultTransition: Transition.fade,
-//       // scrollBehavior: MyCustomScrollBehavior(),
-//       // textDirection: TextDirection.rtl,
-//       // debugShowCheckedModeBanner: false,
-//       // // initialBinding: DefaultBinding(),
-//       // theme: themeController.darkTheme,
-//       // darkTheme: themeController.darkTheme,
-//       // themeMode: themeController.theme,
-//       // initialRoute: '/',
-//       getPages: [
-//         GetPage(name: '/', page: () => HomePage()),
-//         // GetPage(name: '/home', page: () => HomePage()),
-//       ],
-//     );
-//   }
-// }
+    return FatimaApp(
+      title: 'سید محمد امین عمرانی',
+      defaultTransition: Transition.fade,
+      color: Colors.blueGrey,
+      // scrollBehavior: MyCustomScrollBehavior(),
+      // textDirection: TextDirection.rtl,
+      // debugShowCheckedModeBanner: false,
+      // // initialBinding: DefaultBinding(),
+      // theme: themeController.darkTheme,
+      // darkTheme: themeController.darkTheme,
+      // themeMode: themeController.theme,
+      // initialRoute: '/',
+      fatimaPages: [
+        FatimaPage(name: '/', page: () => HomePage()),
+        // GetPage(name: '/home', page: () => HomePage()),
+      ],
+    );
+  }
+}
 
 // class MyHomePage extends StatefulWidget {
 //   const MyHomePage({super.key, required this.title});

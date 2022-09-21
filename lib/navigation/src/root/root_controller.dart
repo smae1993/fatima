@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fatima/fatima.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+// import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 class ConfigData {
   final ValueChanged<Routing?>? routingCallback;
@@ -19,7 +19,7 @@ class ConfigData {
   final List<Bind> binds;
   final Duration? transitionDuration;
   final bool? defaultGlobalState;
-  final List<FatimaPage>? getPages;
+  final List<FatimaPage>? fatimaPages;
   final FatimaPage? unknownRoute;
   final RouteInformationProvider? routeInformationProvider;
   final RouteInformationParser<Object>? routeInformationParser;
@@ -50,7 +50,7 @@ class ConfigData {
     required this.binds,
     required this.transitionDuration,
     required this.defaultGlobalState,
-    required this.getPages,
+    required this.fatimaPages,
     required this.unknownRoute,
     required this.routeInformationProvider,
     required this.routeInformationParser,
@@ -76,7 +76,7 @@ class FatimaMaterialController extends FullLifeCycleController {
     return Fatima.find();
   }
 
-  late final RouterDelegate<Object> routerDelegate;
+  late final RouterDelegate<Object>? routerDelegate;
   late final RouteInformationParser<Object> routeInformationParser;
   final ConfigData config;
 
@@ -90,13 +90,13 @@ class FatimaMaterialController extends FullLifeCycleController {
   void onInit() {
     super.onInit();
 
-    if (config.getPages == null && config.home == null) {
+    if (config.fatimaPages == null && config.home == null) {
       throw 'You need add pages or home';
     }
 
     routerDelegate = config.routerDelegate ??
         createDelegate(
-          pages: config.getPages ??
+          pages: config.fatimaPages ??
               [
                 FatimaPage(
                   name: cleanRouteName("/${config.home.runtimeType}"),
@@ -118,7 +118,7 @@ class FatimaMaterialController extends FullLifeCycleController {
     routeInformationParser = config.routeInformationParser ??
         createInformationParser(
           initialRoute: config.initialRoute ??
-              config.getPages?.first.name ??
+              config.fatimaPages?.first.name ??
               cleanRouteName("/${config.home.runtimeType}"),
         );
 
@@ -144,7 +144,7 @@ class FatimaMaterialController extends FullLifeCycleController {
     Fatima.log = config.logWriterCallback ?? defaultLogWriterCallback;
     defaultTransition = config.defaultTransition;
     defaultOpaqueRoute = config.opaqueRoute ?? true;
-    defaultPopGesture = config.popGesture ?? GetPlatform.isIOS;
+    defaultPopGesture = config.popGesture ?? FatimaPlatform.isIOS;
     defaultTransitionDuration =
         config.transitionDuration ?? Duration(milliseconds: 300);
 
@@ -172,7 +172,7 @@ class FatimaMaterialController extends FullLifeCycleController {
 
   final scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
 
-  bool defaultPopGesture = GetPlatform.isIOS;
+  bool defaultPopGesture = FatimaPlatform.isIOS;
   bool defaultOpaqueRoute = true;
   Transition? defaultTransition;
   Duration defaultTransitionDuration = Duration(milliseconds: 300);
