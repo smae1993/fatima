@@ -1,4 +1,5 @@
 import 'package:example/views/pages/home_page.dart';
+import 'package:example/views/pages/over_view_page.dart';
 import 'package:fatima/fatima.dart';
 import 'package:fatima/fatima_config.dart';
 import 'package:flutter/material.dart';
@@ -20,19 +21,23 @@ class MyApp extends StatelessWidget {
     // );
 
     return FatimaApp(
-      title: 'سید محمد امین عمرانی',
+      title: 'Fatima Framework',
       defaultTransition: Transition.fade,
       color: Colors.blueGrey,
+      themeMode: ThemeMode.dark,
       // scrollBehavior: MyCustomScrollBehavior(),
       // textDirection: TextDirection.rtl,
-      // debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       // // initialBinding: DefaultBinding(),
       // theme: themeController.darkTheme,
       // darkTheme: themeController.darkTheme,
       // themeMode: themeController.theme,
       // initialRoute: '/',
       fatimaPages: [
-        FatimaPage(name: '/', page: () => HomePage()),
+        FatimaPage(
+          name: '/',
+          page: () => OverViewPage(),
+        ),
         // GetPage(name: '/home', page: () => HomePage()),
       ],
     );
