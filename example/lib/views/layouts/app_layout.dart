@@ -58,10 +58,11 @@ class AppLayout extends StatelessWidget {
                     ),
                   ),
                 ),
-                items: const [
+                items: [
                   /// ------------------------------------------------- Overview
                   ui.MenuItem(
                     title: "Overview",
+                    onPressed: () => Fatima.offNamed("/"),
                   ),
 
                   /// -------------------------------------------- Getting Start
@@ -70,9 +71,11 @@ class AppLayout extends StatelessWidget {
                     children: [
                       ui.MenuItem(
                         title: "Installation",
+                        onPressed: () => Fatima.offNamed("/installation"),
                       ),
                       ui.MenuItem(
                         title: "Usage",
+                        onPressed: () => Fatima.offNamed("/usage"),
                       ),
                     ],
                   ),

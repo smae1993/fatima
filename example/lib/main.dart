@@ -1,3 +1,5 @@
+import 'package:example/views/pages/getting_start/installation_page.dart';
+import 'package:example/views/pages/getting_start/usage_page.dart';
 import 'package:example/views/pages/over_view_page.dart';
 import 'package:fatima/fatima.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
 
     return FatimaApp(
       title: 'Fatima Framework',
-      defaultTransition: Transition.fade,
+      defaultTransition: Transition.circularReveal,
       // color: Colors.blueGrey,
       themeMode: ThemeMode.dark,
 
@@ -37,6 +39,14 @@ class MyApp extends StatelessWidget {
         FatimaPage(
           name: '/',
           page: () => OverViewPage(),
+        ),
+        FatimaPage(
+          name: '/installation',
+          page: () => InstallationPage(),
+        ),
+        FatimaPage(
+          name: '/usage',
+          page: () => UsagePage(),
         ),
         // GetPage(name: '/home', page: () => HomePage()),
       ],

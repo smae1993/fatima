@@ -167,6 +167,7 @@ class FatimaMaterialController extends FullLifeCycleController {
         //     borderRadius: BorderRadius.circular(10.0),
         //   ),
         // )),
+        appBarTheme: AppBarTheme(backgroundColor: Colors.grey.shade300),
         colorScheme: ColorScheme.light(
           primary: _box.read<int>("primaryColor") != null
               ? Color(_box.read<int>("primaryColor")!)
@@ -184,6 +185,7 @@ class FatimaMaterialController extends FullLifeCycleController {
             borderRadius: BorderRadius.circular(10.0),
           ),
         )),
+        // appBarTheme: AppBarTheme(backgroundColor: Colors.green),
         colorScheme: ColorScheme.dark(
           primary: _box.read<int>("primaryColor") != null
               ? Color(_box.read<int>("primaryColor")!)

@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 
 class MenuItem extends StatelessWidget {
-  const MenuItem({this.title, this.children, super.key});
+  const MenuItem(
+      {required this.title,
+      this.selected = false,
+      this.onPressed,
+      this.children,
+      super.key});
   final List<MenuItem>? children;
   final String? title;
+  final Function()? onPressed;
+  final bool selected;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -20,7 +27,7 @@ class MenuItem extends StatelessWidget {
               )
             : ListTile(
                 title: Text(title ?? ""),
-                onTap: () {},
+                onTap: onPressed,
                 // shape: RoundedRectangleBorder(
                 //   borderRadius: BorderRadius.circular(10.0),
                 // ),
