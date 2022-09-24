@@ -4,13 +4,12 @@ import 'package:fatima/ui/fatima_ui.dart' as ui;
 import 'package:flutter/material.dart';
 
 class AppLayout extends StatelessWidget {
-  const AppLayout({required this.body, super.key});
+  const AppLayout({required this.body, required this.selected, super.key});
   final Widget body;
+  final String selected;
   @override
   Widget build(BuildContext context) {
-    // Image.asset(name)
     return ui.ResponsiveScaffold(
-      // backgroundColor: Colors.grey.shade100,
       actions: [
         IconButton(onPressed: (() {
           Fatima.toggleThemeMode();
@@ -33,30 +32,42 @@ class AppLayout extends StatelessWidget {
           child: Padding(
               padding: const EdgeInsets.all(10),
               child: ui.Menu(
-                header: SizedBox(
-                  height: 50,
-                  // width: 100,
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        ui.Image(
-                          "assets/images/logo.png",
-                          fit: BoxFit.contain,
+                selected: selected,
+                header: Column(
+                  children: [
+                    SizedBox(
+                      height: 50,
+                      // width: 100,
+                      child: Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            ui.Image(
+                              "assets/images/logo.png",
+                              fit: BoxFit.contain,
+                            ),
+                            SizedBox(
+                              width: 15,
+                            ),
+                            Text(
+                              "Fatima Flutter Kit",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 16),
+                            )
+                          ],
                         ),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        Text(
-                          "Fatima Flutter Kit",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 16),
-                        )
-                      ],
+                      ),
                     ),
-                  ),
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 30),
+                      child: Text(
+                        "Version 0.0.1",
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ],
                 ),
                 items: [
                   /// ------------------------------------------------- Overview

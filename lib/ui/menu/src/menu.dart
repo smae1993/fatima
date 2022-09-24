@@ -8,7 +8,7 @@ class Menu extends StatelessWidget {
   final String? selected;
   @override
   Widget build(BuildContext context) {
-    // items.forEach((element) {element.title ==})
+    checkSelected(items);
     return ListView(children: [
       if (header != null) header!,
       Column(
@@ -17,8 +17,16 @@ class Menu extends StatelessWidget {
     ]);
   }
 
-  // bool checkSelected (ui.MenuItem item){
+  void checkSelected(List<ui.MenuItem> items) {
+    items.forEach((element) {
+      element.selected = isSelected(element);
+      if (element.children != null) checkSelected(element.children!);
+    });
+  }
 
-  // }
-
+  bool isSelected(ui.MenuItem item) {
+    return item.title == selected ||
+        (item.children != null &&
+            item.children!.any((element) => isSelected(element)));
+  }
 }

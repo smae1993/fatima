@@ -23,16 +23,14 @@ class ResponsiveScaffold extends StatelessWidget {
     bool fixedDrawer =
         (drawer != null && MediaQuery.of(context).size.width > 768);
 
+    actions.add(const SizedBox(
+      width: 10,
+    ));
+
     AppBar appBar = AppBar(
       automaticallyImplyLeading: true,
       title: title,
       actions: actions,
-      // leading: fixedDrawer
-      //     ? null
-      //     : IconButton(
-      //         icon: Icon(Icons.menu),
-      //         onPressed: (() => Scaffold.of(context).openDrawer()),
-      //       ),
     );
 
     return Scaffold(

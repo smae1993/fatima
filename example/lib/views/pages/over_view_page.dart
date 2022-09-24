@@ -5,8 +5,9 @@ class OverViewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppLayout(
+        selected: "Overview",
         body: Container(
-      child: Center(child: Text("OverView")),
-    ));
+          child: Center(child: Text("OverView")),
+        ));
   }
 }

@@ -11,6 +11,6 @@ class HomePage extends View<HomeController> {
   }
   @override
   Widget build(BuildContext context) {
-    return AppLayout(body: Container());
+    return AppLayout(selected: "Home", body: Container());
   }
 }
