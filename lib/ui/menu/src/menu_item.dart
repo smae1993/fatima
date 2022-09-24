@@ -12,7 +12,7 @@ class MenuItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         clipBehavior: Clip.antiAlias,
-        margin: EdgeInsets.only(bottom: 5),
+        margin: const EdgeInsets.only(bottom: 5),
         child: (children != null && children!.isNotEmpty)
             ? ExpansionTile(
                 title: Text(title ?? ""),

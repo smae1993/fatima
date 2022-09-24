@@ -23,7 +23,7 @@ class FatimaApp extends StatelessWidget {
   final ThemeData? darkTheme;
   final ThemeMode themeMode;
   final CustomTransition? customTransition;
-  final Color? color;
+  final Color? primaryColor;
   final Map<String, Map<String, String>>? translationsKeys;
   final Translations? translations;
   final TextDirection? textDirection;
@@ -83,7 +83,7 @@ class FatimaApp extends StatelessWidget {
     this.textDirection,
     this.title = '',
     this.onGenerateTitle,
-    this.color,
+    this.primaryColor,
     this.theme,
     this.darkTheme,
     this.themeMode = ThemeMode.system,
@@ -138,7 +138,7 @@ class FatimaApp extends StatelessWidget {
     this.builder,
     this.title = '',
     this.onGenerateTitle,
-    this.color,
+    this.primaryColor,
     this.theme,
     this.darkTheme,
     this.useInheritedMediaQuery = false,
@@ -254,7 +254,7 @@ class FatimaApp extends StatelessWidget {
           ),
           title: title,
           onGenerateTitle: onGenerateTitle,
-          color: color,
+          color: primaryColor,
           theme: controller.theme ?? theme ?? ThemeData.fallback(),
           darkTheme: controller.darkTheme ??
               darkTheme ??

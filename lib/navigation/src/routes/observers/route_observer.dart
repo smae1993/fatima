@@ -1,7 +1,6 @@
 import 'package:fatima/fatima.dart';
 import 'package:flutter/widgets.dart';
 
-import '../../../fatima_navigation.dart';
 import '../../dialog/dialog_route.dart';
 import '../../router_report.dart';
 
@@ -27,12 +26,12 @@ String? _extractRouteName(Route? route) {
   return null;
 }
 
-class GetObserver extends NavigatorObserver {
+class FatimaObserver extends NavigatorObserver {
   final Function(Routing?)? routing;
 
   final Routing? _routeSend;
 
-  GetObserver([this.routing, this._routeSend]);
+  FatimaObserver([this.routing, this._routeSend]);
 
   @override
   void didPop(Route route, Route? previousRoute) {

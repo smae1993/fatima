@@ -1,13 +1,12 @@
-import 'package:example/views/pages/home_page.dart';
 import 'package:example/views/pages/over_view_page.dart';
 import 'package:fatima/fatima.dart';
-import 'package:fatima/fatima_config.dart';
 import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
 
-void main() {
+Future<void> main() async {
   // fatimaConfig = FatimaConfig();
-  runApp(MyApp());
+  await Storage.init();
+  await Storage().erase();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -23,8 +22,9 @@ class MyApp extends StatelessWidget {
     return FatimaApp(
       title: 'Fatima Framework',
       defaultTransition: Transition.fade,
-      color: Colors.blueGrey,
+      // color: Colors.blueGrey,
       themeMode: ThemeMode.dark,
+
       // scrollBehavior: MyCustomScrollBehavior(),
       // textDirection: TextDirection.rtl,
       debugShowCheckedModeBanner: false,

@@ -1,5 +1,6 @@
+import 'package:fatima/fatima.dart';
+import 'package:fatima/state_manager/src/view/updater.dart';
 import 'package:fatima/ui/fatima_ui.dart' as ui;
-// import 'package:fatima/ui/widgets/responsive_drawer.dart';
 import 'package:flutter/material.dart';
 
 class AppLayout extends StatelessWidget {
@@ -9,15 +10,110 @@ class AppLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     // Image.asset(name)
     return ui.ResponsiveScaffold(
-      drawer: const Drawer(
-          // backgroundColor: Colors.black12,
+      // backgroundColor: Colors.grey.shade100,
+      actions: [
+        IconButton(onPressed: (() {
+          Fatima.toggleThemeMode();
+        }), icon: Updater<FatimaMaterialController>(
+          builder: (controller) {
+            return Icon(controller.themeMode == ThemeMode.dark
+                ? Icons.sunny
+                : Icons.dark_mode);
+          },
+        )),
+        IconButton(onPressed: (() {
+          Fatima.setPrimaryColor(Colors.blueGrey);
+        }), icon: Updater<FatimaMaterialController>(
+          builder: (controller) {
+            return Icon(Icons.format_paint_rounded);
+          },
+        ))
+      ],
+      drawer: Drawer(
           child: Padding(
-              padding: const EdgeInsets.all(5),
+              padding: const EdgeInsets.all(10),
               child: ui.Menu(
-                items: [
+                header: SizedBox(
+                  height: 50,
+                  // width: 100,
+                  child: Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        ui.Image(
+                          "assets/images/logo.png",
+                          fit: BoxFit.contain,
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Text(
+                          "Fatima Flutter Kit",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 16),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                items: const [
+                  /// ------------------------------------------------- Overview
                   ui.MenuItem(
                     title: "Overview",
-                  )
+                  ),
+
+                  /// -------------------------------------------- Getting Start
+                  ui.MenuItem(
+                    title: "Getting Start",
+                    children: [
+                      ui.MenuItem(
+                        title: "Installation",
+                      ),
+                      ui.MenuItem(
+                        title: "Usage",
+                      ),
+                    ],
+                  ),
+
+                  ///------------------------------------------------ Navigation
+                  ui.MenuItem(
+                    title: "Navigation",
+                    children: [
+                      ui.MenuItem(
+                        title: "Routing System",
+                      ),
+                      ui.MenuItem(
+                        title: "Pages",
+                      ),
+                      ui.MenuItem(
+                        title: "Dialogs",
+                      ),
+                      ui.MenuItem(
+                        title: "Snackbar",
+                      ),
+                    ],
+                  ),
+
+                  ///------------------------------------------------ UI
+                  ui.MenuItem(
+                    title: "UI",
+                    children: [
+                      ui.MenuItem(
+                        title: "Theme",
+                      ),
+                      ui.MenuItem(
+                        title: "Layouts",
+                      ),
+                      ui.MenuItem(
+                        title: "Buttons",
+                      ),
+                      ui.MenuItem(
+                        title: "Cards",
+                      ),
+                    ],
+                  ),
                 ],
               )
 
@@ -115,7 +211,6 @@ class AppLayout extends StatelessWidget {
               // ),
               )),
       body: body,
-      appbar: AppBar(),
     );
   }
 }

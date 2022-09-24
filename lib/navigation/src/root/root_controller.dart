@@ -3,7 +3,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fatima/fatima.dart';
-// import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 class ConfigData {
   final ValueChanged<Routing?>? routingCallback;
@@ -36,6 +35,8 @@ class ConfigData {
   final CustomTransition? customTransition;
   final Widget? home;
 
+  final Color? primaryColor;
+
   ConfigData({
     required this.routingCallback,
     required this.defaultTransition,
@@ -66,11 +67,14 @@ class ConfigData {
     required this.initialRoute,
     required this.customTransition,
     required this.home,
+    this.primaryColor,
   });
 }
 
 class FatimaMaterialController extends FullLifeCycleController {
   FatimaMaterialController(this.config);
+
+  final _box = Storage();
 
   static FatimaMaterialController get to {
     return Fatima.find();
@@ -107,10 +111,10 @@ class FatimaMaterialController extends FullLifeCycleController {
           navigatorKey: config.navigatorKey,
           navigatorObservers: (config.navigatorObservers == null
               ? <NavigatorObserver>[
-                  GetObserver(config.routingCallback, Fatima.routing)
+                  FatimaObserver(config.routingCallback, Fatima.routing)
                 ]
               : <NavigatorObserver>[
-                  GetObserver(config.routingCallback, routing),
+                  FatimaObserver(config.routingCallback, routing),
                   ...config.navigatorObservers!
                 ]),
         );
@@ -146,11 +150,45 @@ class FatimaMaterialController extends FullLifeCycleController {
     defaultOpaqueRoute = config.opaqueRoute ?? true;
     defaultPopGesture = config.popGesture ?? FatimaPlatform.isIOS;
     defaultTransitionDuration =
-        config.transitionDuration ?? Duration(milliseconds: 300);
+        config.transitionDuration ?? const Duration(milliseconds: 300);
 
     // defaultTransitionCurve = Curves.easeOutQuad;
     // defaultDialogTransitionCurve = Curves.easeOutQuad;
     // defaultDialogTransitionDuration = Duration(milliseconds: 300);
+
+    theme = ThemeData(
+        fontFamily: 'IranYekan',
+        // elevatedButtonTheme: ElevatedButtonThemeData(
+        //     style: ElevatedButton.styleFrom(
+        //   foregroundColor: Colors.white,
+        //   backgroundColor: const Color(0xE8212121),
+        //   padding: const EdgeInsets.all(10.0),
+        //   shape: RoundedRectangleBorder(
+        //     borderRadius: BorderRadius.circular(10.0),
+        //   ),
+        // )),
+        colorScheme: ColorScheme.light(
+          primary: _box.read<int>("primaryColor") != null
+              ? Color(_box.read<int>("primaryColor")!)
+              : (config.primaryColor ?? Colors.blue),
+        ));
+
+    darkTheme = ThemeData(
+        fontFamily: 'IranYekan',
+        elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+          foregroundColor: Colors.white,
+          backgroundColor: const Color(0xE8212121),
+          padding: const EdgeInsets.all(10.0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+        )),
+        colorScheme: ColorScheme.dark(
+          primary: _box.read<int>("primaryColor") != null
+              ? Color(_box.read<int>("primaryColor")!)
+              : (config.primaryColor ?? Colors.blue),
+        ));
   }
 
   String cleanRouteName(String name) {
@@ -226,6 +264,26 @@ class FatimaMaterialController extends FullLifeCycleController {
 
   void setThemeMode(ThemeMode value) {
     themeMode = value;
+    update();
+  }
+
+  void toggleThemeMode() {
+    themeMode =
+        (themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark);
+    update();
+  }
+
+  void changePrimaryColor(Color color) {
+    _box.write("primaryColor", color.value);
+
+    theme = theme!.copyWith(
+        colorScheme: ColorScheme.light(
+      primary: color,
+    ));
+    darkTheme = darkTheme!.copyWith(
+        colorScheme: ColorScheme.dark(
+      primary: color,
+    ));
     update();
   }
 

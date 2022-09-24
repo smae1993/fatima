@@ -1029,17 +1029,17 @@ extension GetNavigationExt on FatimaInterface {
       Fatima.log = logWriterCallback;
     }
     if (defaultPopGesture != null) {
-      _getxController.defaultPopGesture = defaultPopGesture;
+      _fatimaController.defaultPopGesture = defaultPopGesture;
     }
     if (defaultOpaqueRoute != null) {
-      _getxController.defaultOpaqueRoute = defaultOpaqueRoute;
+      _fatimaController.defaultOpaqueRoute = defaultOpaqueRoute;
     }
     if (defaultTransition != null) {
-      _getxController.defaultTransition = defaultTransition;
+      _fatimaController.defaultTransition = defaultTransition;
     }
 
     if (defaultDurationTransition != null) {
-      _getxController.defaultTransitionDuration = defaultDurationTransition;
+      _fatimaController.defaultTransitionDuration = defaultDurationTransition;
     }
   }
 
@@ -1065,22 +1065,30 @@ extension GetNavigationExt on FatimaInterface {
     await engine.performReassemble();
   }
 
-  void appUpdate() => _getxController.update();
+  void appUpdate() => _fatimaController.update();
 
   void changeTheme(ThemeData theme) {
-    _getxController.setTheme(theme);
+    _fatimaController.setTheme(theme);
   }
 
   void changeThemeMode(ThemeMode themeMode) {
-    _getxController.setThemeMode(themeMode);
+    _fatimaController.setThemeMode(themeMode);
+  }
+
+  void toggleThemeMode() {
+    _fatimaController.toggleThemeMode();
+  }
+
+  void setPrimaryColor(Color color) {
+    _fatimaController.changePrimaryColor(color);
   }
 
   GlobalKey<NavigatorState>? addKey(GlobalKey<NavigatorState> newKey) {
-    return _getxController.addKey(newKey);
+    return _fatimaController.addKey(newKey);
   }
 
   FatimaDelegate? nestedKey(String? key) {
-    return _getxController.nestedKey(key);
+    return _fatimaController.nestedKey(key);
   }
 
   FatimaDelegate searchDelegate(dynamic k) {
@@ -1109,7 +1117,7 @@ extension GetNavigationExt on FatimaInterface {
 
   /// give current arguments
   //dynamic get arguments => routing.args;
-  dynamic get arguments => _getxController.rootDelegate.arguments();
+  dynamic get arguments => _fatimaController.rootDelegate.arguments();
 
   /// give name from current route
   String get currentRoute => routing.current;
@@ -1222,46 +1230,46 @@ extension GetNavigationExt on FatimaInterface {
   // /// give access to Immutable MediaQuery.of(context).size.width
   // double get width => MediaQuery.of(context).size.width;
 
-  GlobalKey<NavigatorState> get key => _getxController.key;
+  GlobalKey<NavigatorState> get key => _fatimaController.key;
 
-  Map<dynamic, FatimaDelegate> get keys => _getxController.keys;
+  Map<dynamic, FatimaDelegate> get keys => _fatimaController.keys;
 
-  FatimaMaterialController get rootController => _getxController;
+  FatimaMaterialController get rootController => _fatimaController;
 
-  bool get defaultPopGesture => _getxController.defaultPopGesture;
-  bool get defaultOpaqueRoute => _getxController.defaultOpaqueRoute;
+  bool get defaultPopGesture => _fatimaController.defaultPopGesture;
+  bool get defaultOpaqueRoute => _fatimaController.defaultOpaqueRoute;
 
-  Transition? get defaultTransition => _getxController.defaultTransition;
+  Transition? get defaultTransition => _fatimaController.defaultTransition;
 
   Duration get defaultTransitionDuration {
-    return _getxController.defaultTransitionDuration;
+    return _fatimaController.defaultTransitionDuration;
   }
 
-  Curve get defaultTransitionCurve => _getxController.defaultTransitionCurve;
+  Curve get defaultTransitionCurve => _fatimaController.defaultTransitionCurve;
 
   Curve get defaultDialogTransitionCurve {
-    return _getxController.defaultDialogTransitionCurve;
+    return _fatimaController.defaultDialogTransitionCurve;
   }
 
   Duration get defaultDialogTransitionDuration {
-    return _getxController.defaultDialogTransitionDuration;
+    return _fatimaController.defaultDialogTransitionDuration;
   }
 
-  Routing get routing => _getxController.routing;
+  Routing get routing => _fatimaController.routing;
 
   Map<String, String?> get parameters =>
-      _getxController.rootDelegate.parameters;
+      _fatimaController.rootDelegate.parameters;
   set parameters(Map<String, String?> newParameters) =>
-      _getxController.parameters = newParameters;
+      _fatimaController.parameters = newParameters;
 
-  bool get testMode => _getxController.testMode;
-  set testMode(bool isTest) => _getxController.testMode = isTest;
+  bool get testMode => _fatimaController.testMode;
+  set testMode(bool isTest) => _fatimaController.testMode = isTest;
 
   /// Casts the stored router delegate to a desired type
   TDelegate? delegate<TDelegate extends RouterDelegate<TPage>, TPage>() =>
-      _getxController.routerDelegate as TDelegate?;
+      _fatimaController.routerDelegate as TDelegate?;
 
-  FatimaMaterialController get _getxController => FatimaMaterialController.to;
+  FatimaMaterialController get _fatimaController => FatimaMaterialController.to;
 }
 
 extension OverlayExt on FatimaInterface {

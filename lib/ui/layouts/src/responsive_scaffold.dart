@@ -1,30 +1,55 @@
 import 'package:flutter/material.dart';
+import 'package:fatima/ui/fatima_ui.dart' as ui;
 
 class ResponsiveScaffold extends StatelessWidget {
   const ResponsiveScaffold(
-      {required this.body, this.drawer, this.appbar, super.key});
+      {required this.body,
+      this.drawer,
+      // this.appbar,
+      this.backgroundColor,
+      this.title,
+      this.actions = const [],
+      super.key});
 
   final Widget body;
   final Widget? drawer;
-  final AppBar? appbar;
+  // final AppBar? appbar;
+  final Color? backgroundColor;
+  final Widget? title;
+  final List<Widget> actions;
 
   @override
   Widget build(BuildContext context) {
+    bool fixedDrawer =
+        (drawer != null && MediaQuery.of(context).size.width > 768);
+
+    AppBar appBar = AppBar(
+      automaticallyImplyLeading: true,
+      title: title,
+      actions: actions,
+      // leading: fixedDrawer
+      //     ? null
+      //     : IconButton(
+      //         icon: Icon(Icons.menu),
+      //         onPressed: (() => Scaffold.of(context).openDrawer()),
+      //       ),
+    );
+
     return Scaffold(
-      appBar: (drawer != null && MediaQuery.of(context).size.width > 768)
-          ? null
-          : appbar,
-      body: (drawer != null && MediaQuery.of(context).size.width > 768)
+      backgroundColor: backgroundColor,
+      appBar: fixedDrawer ? null : appBar,
+      body: fixedDrawer
           ? Row(
               children: [
                 drawer!,
                 Expanded(
                     child: Column(
-                  children: [appbar!, Expanded(child: body)],
+                  children: [appBar, Expanded(child: body)],
                 ))
               ],
             )
           : body,
+      drawer: fixedDrawer ? null : drawer,
     );
   }
 }

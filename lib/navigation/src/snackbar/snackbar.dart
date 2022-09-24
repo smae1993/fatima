@@ -130,7 +130,7 @@ class FatimaSnackBar extends StatefulWidget {
   /// It Makes [backgroundColor] be ignored.
   final Gradient? backgroundGradient;
 
-  /// You can use any widget here, but I recommend [Icon] or [Image] as
+  /// You can use any widget here, but I recommend [Icon] or  as
   /// indication of what kind
   /// of message you are displaying. Other widgets may break the layout
   final Widget? icon;
