@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ResponsiveDrawer extends StatelessWidget {
-  const ResponsiveDrawer(
+class ResponsiveScaffold extends StatelessWidget {
+  const ResponsiveScaffold(
       {required this.body, this.drawer, this.appbar, super.key});
 
   final Widget body;
@@ -26,9 +26,5 @@ class ResponsiveDrawer extends StatelessWidget {
             )
           : body,
     );
-  }
-
-  Widget _scaffold() {
-    return Scaffold();
   }
 }

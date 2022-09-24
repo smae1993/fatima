@@ -1,7 +1,8 @@
-import 'package:fatima/ui/buttons/fatima_button.dart';
+import 'package:fatima/ui/buttons/src/button.dart';
 import 'package:flutter/material.dart';
+import 'package:fatima/ui/fatima_ui.dart' as ui;
 
-class OutlineBtn extends FatimaBtn {
+class OutlineBtn extends ui.Button {
   OutlineBtn({super.key});
 
   @override

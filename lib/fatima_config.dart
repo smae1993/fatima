@@ -8,11 +8,11 @@ class FatimaConfig {
   FatimaConfig() {
     Get.put(FatimaController());
   }
-  FatimaBtnConfig btnConfig = FatimaBtnConfig();
-  FatimaCardConfig cardConfig = FatimaCardConfig();
+  ButtonConfig btnConfig = ButtonConfig();
+  CardConfig cardConfig = CardConfig();
   FatimaTextFieldConfig textFieldConfig = FatimaTextFieldConfig();
 
-  void setButtonsConfig(FatimaBtnConfig config) {
+  void setButtonsConfig(ButtonConfig config) {
     btnConfig = config;
   }
 

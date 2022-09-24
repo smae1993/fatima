@@ -1,8 +1,8 @@
 import 'package:example/controllers/home_controller.dart';
 import 'package:fatima/fatima.dart';
 import 'package:fatima/state_manager/src/view/updater.dart';
-import 'package:fatima/ui/widgets/responsive_drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:fatima/ui/fatima_ui.dart' as ui;
 
 class HomePage extends View<HomeController> {
   HomePage() {
@@ -11,7 +11,7 @@ class HomePage extends View<HomeController> {
   }
   @override
   Widget build(BuildContext context) {
-    return ResponsiveDrawer(
+    return ui.ResponsiveScaffold(
       appbar: AppBar(),
       drawer: Drawer(),
       body: Updater<HomeController>(

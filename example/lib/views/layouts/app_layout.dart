@@ -1,5 +1,5 @@
-import 'package:fatima/ui/fatima_ui.dart';
-import 'package:fatima/ui/widgets/responsive_drawer.dart';
+import 'package:fatima/ui/fatima_ui.dart' as ui;
+// import 'package:fatima/ui/widgets/responsive_drawer.dart';
 import 'package:flutter/material.dart';
 
 class AppLayout extends StatelessWidget {
@@ -7,104 +7,113 @@ class AppLayout extends StatelessWidget {
   final Widget body;
   @override
   Widget build(BuildContext context) {
-    return ResponsiveDrawer(
-      drawer: Drawer(
+    // Image.asset(name)
+    return ui.ResponsiveScaffold(
+      drawer: const Drawer(
           // backgroundColor: Colors.black12,
           child: Padding(
-        padding: EdgeInsets.all(5),
-        child: ListView(
-          children: <Widget>[
-            DrawerHeader(
-              padding: EdgeInsets.zero,
-              child: Container(
-                color: Colors.grey.shade400,
-                child: Column(
-                    // children: [Image.asset("name")],
-                    ),
-              ),
-            ),
-            DrawerItem(
-              title: "Overview",
-            ),
-            DrawerItem(
-              title: "Getting Start",
-              children: [
-                DrawerItem(
-                  title: "Installation",
-                ),
-                DrawerItem(
-                  title: "Usage",
-                  children: [
-                    DrawerItem(
-                      title: "Installation",
-                    ),
-                    DrawerItem(
-                      title: "Usage",
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            DrawerItem(
-              title: "Getting Start",
-              children: [
-                DrawerItem(
-                  title: "Installation",
-                ),
-                DrawerItem(
-                  title: "Usage",
-                  children: [
-                    DrawerItem(
-                      title: "Installation",
-                    ),
-                    DrawerItem(
-                      title: "Usage",
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            DrawerItem(
-              title: "Getting Start",
-              children: [
-                DrawerItem(
-                  title: "Installation",
-                ),
-                DrawerItem(
-                  title: "Usage",
-                  children: [
-                    DrawerItem(
-                      title: "Installation",
-                    ),
-                    DrawerItem(
-                      title: "Usage",
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            DrawerItem(
-              title: "Getting Start",
-              children: [
-                DrawerItem(
-                  title: "Installation",
-                ),
-                DrawerItem(
-                  title: "Usage",
-                  children: [
-                    DrawerItem(
-                      title: "Installation",
-                    ),
-                    DrawerItem(
-                      title: "Usage",
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ],
-        ),
-      )),
+              padding: const EdgeInsets.all(5),
+              child: ui.Menu(
+                items: [
+                  ui.MenuItem(
+                    title: "Overview",
+                  )
+                ],
+              )
+
+              // ListView(
+              //   children: <Widget>[
+              //     DrawerHeader(
+              //       padding: EdgeInsets.zero,
+              //       child: Container(
+              //         color: Colors.grey.shade400,
+              //         child: Column(
+              //             // children: [Image.asset("name")],
+              //             ),
+              //       ),
+              //     ),
+              //     ui.DrawerItem(
+              //       title: "Overview",
+              //     ),
+              //     DrawerItem(
+              //       title: "Getting Start",
+              //       children: [
+              //         DrawerItem(
+              //           title: "Installation",
+              //         ),
+              //         DrawerItem(
+              //           title: "Usage",
+              //           children: [
+              //             DrawerItem(
+              //               title: "Installation",
+              //             ),
+              //             DrawerItem(
+              //               title: "Usage",
+              //             ),
+              //           ],
+              //         ),
+              //       ],
+              //     ),
+              //     DrawerItem(
+              //       title: "Getting Start",
+              //       children: [
+              //         DrawerItem(
+              //           title: "Installation",
+              //         ),
+              //         DrawerItem(
+              //           title: "Usage",
+              //           children: [
+              //             DrawerItem(
+              //               title: "Installation",
+              //             ),
+              //             DrawerItem(
+              //               title: "Usage",
+              //             ),
+              //           ],
+              //         ),
+              //       ],
+              //     ),
+              //     DrawerItem(
+              //       title: "Getting Start",
+              //       children: [
+              //         DrawerItem(
+              //           title: "Installation",
+              //         ),
+              //         DrawerItem(
+              //           title: "Usage",
+              //           children: [
+              //             DrawerItem(
+              //               title: "Installation",
+              //             ),
+              //             DrawerItem(
+              //               title: "Usage",
+              //             ),
+              //           ],
+              //         ),
+              //       ],
+              //     ),
+              //     DrawerItem(
+              //       title: "Getting Start",
+              //       children: [
+              //         DrawerItem(
+              //           title: "Installation",
+              //         ),
+              //         DrawerItem(
+              //           title: "Usage",
+              //           children: [
+              //             DrawerItem(
+              //               title: "Installation",
+              //             ),
+              //             DrawerItem(
+              //               title: "Usage",
+              //             ),
+              //           ],
+              //         ),
+              //       ],
+              //     ),
+              //   ],
+              // ),
+              )),
       body: body,
       appbar: AppBar(),
     );

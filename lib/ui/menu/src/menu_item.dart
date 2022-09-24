@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class DrawerItem extends StatelessWidget {
-  const DrawerItem({this.title, this.children, super.key});
-  final List<DrawerItem>? children;
+class MenuItem extends StatelessWidget {
+  const MenuItem({this.title, this.children, super.key});
+  final List<MenuItem>? children;
   final String? title;
   @override
   Widget build(BuildContext context) {

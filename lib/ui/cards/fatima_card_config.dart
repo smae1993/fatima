@@ -1,1 +1,3 @@
-class FatimaCardConfig {}
+class CardConfig {
+  CardConfig();
+}

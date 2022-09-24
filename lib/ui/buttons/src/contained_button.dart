@@ -1,8 +1,8 @@
-import 'package:fatima/ui/buttons/fatima_button.dart';
 import 'package:flutter/material.dart';
+import 'package:fatima/ui/fatima_ui.dart' as ui;
 
 // ignore: must_be_immutable
-class ContainedBtn extends FatimaBtn {
+class ContainedBtn extends ui.Button {
   ContainedBtn(
       {super.key,
       super.type,

@@ -1,0 +1,3 @@
+class UIConfig {
+  UIConfig();
+}

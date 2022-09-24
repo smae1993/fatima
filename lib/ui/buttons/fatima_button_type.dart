@@ -1,4 +1,4 @@
-enum FatimaBtnType {
+enum ButtonType {
   contained,
   text,
   outlined,
