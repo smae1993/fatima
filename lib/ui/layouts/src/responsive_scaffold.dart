@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fatima/ui/fatima_ui.dart' as ui;
+// import 'package:fatima/ui/fatima_ui.dart' as ui;
 
 class ResponsiveScaffold extends StatelessWidget {
   const ResponsiveScaffold(
@@ -23,9 +23,9 @@ class ResponsiveScaffold extends StatelessWidget {
     bool fixedDrawer =
         (drawer != null && MediaQuery.of(context).size.width > 768);
 
-    actions.add(const SizedBox(
-      width: 10,
-    ));
+    // actions.add(const SizedBox(
+    //   width: 10,
+    // ));
 
     AppBar appBar = AppBar(
       automaticallyImplyLeading: true,
