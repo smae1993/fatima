@@ -1,6 +1,7 @@
 import 'dart:async';
+import 'package:fatima/fatima.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get/utils.dart';
+// import 'package:get/utils.dart';
 import 'storage/html.dart' if (dart.library.io) 'storage/io.dart';
 import 'value.dart';
 
@@ -150,7 +151,7 @@ class Storage {
 
   late StorageImpl _concrete;
 
-  GetQueue queue = GetQueue();
+  FatimaQueue queue = FatimaQueue();
 
   /// listenable of container
   ValueStorage<Map<String, dynamic>> get listenable => _concrete.subject;

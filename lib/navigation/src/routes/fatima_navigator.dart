@@ -2,8 +2,8 @@ import 'package:flutter/widgets.dart';
 
 import 'package:fatima/fatima.dart';
 
-class GetNavigator extends Navigator {
-  GetNavigator.onGenerateRoute({
+class FatimaNavigator extends Navigator {
+  FatimaNavigator.onGenerateRoute({
     GlobalKey<NavigatorState>? key,
     bool Function(Route<dynamic>, dynamic)? onPopPage,
     required List<FatimaPage> pages,
@@ -47,7 +47,7 @@ class GetNavigator extends Navigator {
               transitionDelegate ?? const DefaultTransitionDelegate<dynamic>(),
         );
 
-  GetNavigator({
+  FatimaNavigator({
     GlobalKey<NavigatorState>? key,
     bool Function(Route<dynamic>, dynamic)? onPopPage,
     required List<FatimaPage> pages,

@@ -5,12 +5,6 @@ import 'package:flutter/material.dart';
 
 import 'package:fatima/fatima.dart';
 
-// import '../../../state_manager/controller/bindings_interface.dart';
-
-// import '../../../get_instance/src/bindings_interface.dart';
-// import '../../../get_utils/src/platform/platform.dart';
-// import '../../../route_manager.dart';
-
 class FatimaDelegate extends RouterDelegate<RouteDecoder>
     with
         ChangeNotifier,
@@ -76,7 +70,7 @@ class FatimaDelegate extends RouterDelegate<RouteDecoder>
   })  : navigatorKey = navigatorKey ?? GlobalKey<NavigatorState>(),
         notFoundRoute = notFoundRoute ??= FatimaPage(
           name: '/404',
-          page: () => Scaffold(
+          page: () => const Scaffold(
             body: Center(child: Text('Route not found')),
           ),
         ) {
@@ -149,9 +143,9 @@ class FatimaDelegate extends RouterDelegate<RouteDecoder>
     return currentConfiguration?.pageSettings;
   }
 
-  Future<T?> _removeHistoryEntry<T>(RouteDecoder entry, T result) async {
-    return _unsafeHistoryRemove<T>(entry, result);
-  }
+  // Future<T?> _removeHistoryEntry<T>(RouteDecoder entry, T result) async {
+  //   return _unsafeHistoryRemove<T>(entry, result);
+  // }
 
   Future<void> _pushHistory(RouteDecoder config) async {
     if (config.route!.preventDuplicates) {
@@ -299,7 +293,7 @@ class FatimaDelegate extends RouterDelegate<RouteDecoder>
         color: Theme.of(context).scaffoldBackgroundColor,
       );
     }
-    return GetNavigator(
+    return FatimaNavigator(
       key: navigatorKey,
       onPopPage: _onPopVisualRoute,
       pages: pages,

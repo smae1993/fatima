@@ -1,6 +1,6 @@
 name: fatima
 description: A kit for flutter that contains UI tools, State Mangement tools, Navigation system, Storage.
-version: 1.0.0
+version: 1.0.1
 homepage: "https://github.com/smae1993/fatima"
 
 environment:
@@ -14,8 +14,6 @@ dependencies:
   flutter_web_plugins:
     sdk: flutter
 
-  get: ^4.6.5
-  get_storage: ^2.0.3
   path_provider: ^2.0.11
 
 dev_dependencies:

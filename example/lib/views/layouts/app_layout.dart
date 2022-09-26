@@ -1,3 +1,4 @@
+import 'package:example/constants/images.dart';
 import 'package:fatima/fatima.dart';
 import 'package:fatima/state_manager/src/view/updater.dart';
 import 'package:fatima/ui/fatima_ui.dart' as ui;
@@ -43,15 +44,15 @@ class AppLayout extends StatelessWidget {
                         padding: const EdgeInsets.all(10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
+                          children: [
                             ui.Image(
-                              "assets/images/logo.png",
+                              Images.logo.path(),
                               fit: BoxFit.contain,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 15,
                             ),
-                            Text(
+                            const Text(
                               "Fatima Flutter Kit",
                               textAlign: TextAlign.center,
                               style: TextStyle(
@@ -99,15 +100,19 @@ class AppLayout extends StatelessWidget {
                     children: [
                       ui.MenuItem(
                         title: "Routing System",
+                        onPressed: () => Fatima.offNamed("/routing_system"),
                       ),
                       ui.MenuItem(
-                        title: "Pages",
+                        title: "Page",
+                        onPressed: () => Fatima.offNamed("/page"),
                       ),
                       ui.MenuItem(
-                        title: "Dialogs",
+                        title: "Dialog",
+                        onPressed: () => Fatima.offNamed("/dialog"),
                       ),
                       ui.MenuItem(
                         title: "Snackbar",
+                        onPressed: () => Fatima.offNamed("/snackbar"),
                       ),
                     ],
                   ),

@@ -169,7 +169,7 @@ class GetRouterOutlet extends RouterOutlet<FatimaDelegate, RouteDecoder> {
             ].whereType<FatimaPage>();
 
             if (pageRes.isNotEmpty) {
-              return GetNavigator(
+              return FatimaNavigator(
                 onPopPage: onPopPage ??
                     (route, result) {
                       final didPop = route.didPop(result);
