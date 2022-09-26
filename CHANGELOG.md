@@ -1,2 +1,2 @@
-## [1.0.1] - July 20, 2022
+## [1.0.2] - July 20, 2022
 * initialize package
