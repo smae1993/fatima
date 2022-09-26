@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class MenuItem extends StatelessWidget {
   MenuItem(
       {required this.title,
@@ -21,10 +22,13 @@ class MenuItem extends StatelessWidget {
         clipBehavior: Clip.antiAlias,
         margin: const EdgeInsets.only(bottom: 5),
         child: (children != null && children!.isNotEmpty)
-            ? ExpansionTile(
-                initiallyExpanded: selected,
-                title: Text(title ?? ""),
-                children: children!,
+            ? GestureDetector(
+                onTap: onPressed,
+                child: ExpansionTile(
+                  initiallyExpanded: selected,
+                  title: Text(title ?? ""),
+                  children: children!,
+                ),
               )
             : ListTile(
                 selected: selected,

@@ -10,6 +10,7 @@ class AppLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ui.ResponsiveScaffold(
+      title: Text(selected),
       actions: [
         IconButton(onPressed: (() {
           Fatima.toggleThemeMode();
@@ -60,7 +61,7 @@ class AppLayout extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.only(bottom: 30),
                       child: Text(
                         "Version 0.0.1",
@@ -79,6 +80,7 @@ class AppLayout extends StatelessWidget {
                   /// -------------------------------------------- Getting Start
                   ui.MenuItem(
                     title: "Getting Start",
+                    onPressed: () => Fatima.offNamed("/"),
                     children: [
                       ui.MenuItem(
                         title: "Installation",
@@ -128,102 +130,29 @@ class AppLayout extends StatelessWidget {
                       ),
                     ],
                   ),
-                ],
-              )
 
-              // ListView(
-              //   children: <Widget>[
-              //     DrawerHeader(
-              //       padding: EdgeInsets.zero,
-              //       child: Container(
-              //         color: Colors.grey.shade400,
-              //         child: Column(
-              //             // children: [Image.asset("name")],
-              //             ),
-              //       ),
-              //     ),
-              //     ui.DrawerItem(
-              //       title: "Overview",
-              //     ),
-              //     DrawerItem(
-              //       title: "Getting Start",
-              //       children: [
-              //         DrawerItem(
-              //           title: "Installation",
-              //         ),
-              //         DrawerItem(
-              //           title: "Usage",
-              //           children: [
-              //             DrawerItem(
-              //               title: "Installation",
-              //             ),
-              //             DrawerItem(
-              //               title: "Usage",
-              //             ),
-              //           ],
-              //         ),
-              //       ],
-              //     ),
-              //     DrawerItem(
-              //       title: "Getting Start",
-              //       children: [
-              //         DrawerItem(
-              //           title: "Installation",
-              //         ),
-              //         DrawerItem(
-              //           title: "Usage",
-              //           children: [
-              //             DrawerItem(
-              //               title: "Installation",
-              //             ),
-              //             DrawerItem(
-              //               title: "Usage",
-              //             ),
-              //           ],
-              //         ),
-              //       ],
-              //     ),
-              //     DrawerItem(
-              //       title: "Getting Start",
-              //       children: [
-              //         DrawerItem(
-              //           title: "Installation",
-              //         ),
-              //         DrawerItem(
-              //           title: "Usage",
-              //           children: [
-              //             DrawerItem(
-              //               title: "Installation",
-              //             ),
-              //             DrawerItem(
-              //               title: "Usage",
-              //             ),
-              //           ],
-              //         ),
-              //       ],
-              //     ),
-              //     DrawerItem(
-              //       title: "Getting Start",
-              //       children: [
-              //         DrawerItem(
-              //           title: "Installation",
-              //         ),
-              //         DrawerItem(
-              //           title: "Usage",
-              //           children: [
-              //             DrawerItem(
-              //               title: "Installation",
-              //             ),
-              //             DrawerItem(
-              //               title: "Usage",
-              //             ),
-              //           ],
-              //         ),
-              //       ],
-              //     ),
-              //   ],
-              // ),
-              )),
+                  ///------------------------------------------ State Management
+                  ui.MenuItem(
+                    title: "State Management",
+                    children: [
+                      ui.MenuItem(
+                        title: "MVC Structure",
+                      ),
+                      ui.MenuItem(
+                        title: "Controller",
+                      ),
+                      ui.MenuItem(
+                        title: "Updater",
+                      ),
+                    ],
+                  ),
+
+                  ///------------------------------------------ Storage
+                  ui.MenuItem(
+                    title: "Storage",
+                  ),
+                ],
+              ))),
       body: body,
     );
   }
