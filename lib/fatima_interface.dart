@@ -13,4 +13,6 @@ abstract class FatimaInterface {
   SmartManagement smartManagement = SmartManagement.full;
   bool isLogEnable = kDebugMode;
   LogWriterCallback log = defaultLogWriterCallback;
+
+  String version = "1.0.0";
 }

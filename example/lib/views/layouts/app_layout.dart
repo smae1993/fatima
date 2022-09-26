@@ -61,10 +61,10 @@ class AppLayout extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(bottom: 30),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 30),
                       child: Text(
-                        "Version 0.0.1",
+                        "Version ${Fatima.version}",
                         textAlign: TextAlign.center,
                       ),
                     ),
