@@ -4,16 +4,12 @@ import 'package:fatima/fatima.dart';
 import 'package:fatima/fatima_interface.dart';
 import 'package:flutter/material.dart';
 
-// import '../../get_core/get_core.dart';
-// import '../../get_instance/src/bindings_interface.dart';
-// import '../../get_utils/get_utils.dart';
-// import '../fatima_navigation.dart';
 import 'dialog/dialog_route.dart';
 
 /// It replaces the Flutter Navigator, but needs no context.
 /// You can to use navigator.push(YourRoute()) rather
 /// Navigator.push(context, YourRoute());
-NavigatorState? get navigator => GetNavigationExt(Fatima).key.currentState;
+NavigatorState? get navigator => FatimaNavigationExt(Fatima).key.currentState;
 
 extension ExtensionBottomSheet on FatimaInterface {
   Future<T?> bottomSheet<T>(
@@ -232,8 +228,8 @@ extension ExtensionDialog on FatimaInterface {
     }
 
     Widget baseAlertDialog = AlertDialog(
-      titlePadding: titlePadding ?? EdgeInsets.all(8),
-      contentPadding: contentPadding ?? EdgeInsets.all(8),
+      titlePadding: titlePadding ?? const EdgeInsets.all(8),
+      contentPadding: contentPadding ?? const EdgeInsets.all(8),
 
       backgroundColor: backgroundColor ?? theme.dialogBackgroundColor,
       shape: RoundedRectangleBorder(
@@ -246,7 +242,7 @@ extension ExtensionDialog on FatimaInterface {
           content ??
               Text(middleText,
                   textAlign: TextAlign.center, style: middleTextStyle),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           ButtonTheme(
             minWidth: 78.0,
             height: 34.0,
@@ -435,14 +431,14 @@ extension ExtensionSnackbar on FatimaInterface {
             ),
         snackPosition: snackPosition ?? SnackPosition.top,
         borderRadius: borderRadius ?? 15,
-        margin: margin ?? EdgeInsets.symmetric(horizontal: 10),
+        margin: margin ?? const EdgeInsets.symmetric(horizontal: 10),
         duration: duration,
         barBlur: barBlur ?? 7.0,
         backgroundColor: backgroundColor ?? Colors.grey.withOpacity(0.2),
         icon: icon,
         shouldIconPulse: shouldIconPulse ?? true,
         maxWidth: maxWidth,
-        padding: padding ?? EdgeInsets.all(16),
+        padding: padding ?? const EdgeInsets.all(16),
         borderColor: borderColor,
         borderWidth: borderWidth,
         leftBarIndicatorColor: leftBarIndicatorColor,
@@ -459,7 +455,7 @@ extension ExtensionSnackbar on FatimaInterface {
         snackStyle: snackStyle ?? SnackStyle.floating,
         forwardAnimationCurve: forwardAnimationCurve ?? Curves.easeOutCirc,
         reverseAnimationCurve: reverseAnimationCurve ?? Curves.easeOutCirc,
-        animationDuration: animationDuration ?? Duration(seconds: 1),
+        animationDuration: animationDuration ?? const Duration(seconds: 1),
         overlayBlur: overlayBlur ?? 0.0,
         overlayColor: overlayColor ?? Colors.transparent,
         userInputForm: userInputForm);
@@ -478,7 +474,7 @@ extension ExtensionSnackbar on FatimaInterface {
   }
 }
 
-extension GetNavigationExt on FatimaInterface {
+extension FatimaNavigationExt on FatimaInterface {
   /// **Navigation.push()** shortcut.<br><br>
   ///
   /// Pushes a new `page` to the stack
@@ -881,7 +877,7 @@ extension GetNavigationExt on FatimaInterface {
   ///
   /// If you're using the [BindingsInterface] api, you must define it here
   ///
-  /// By default, GetX will prevent you from push a route that you already in,
+  /// By default, Fatima will prevent you from push a route that you already in,
   /// if you want to push anyway, set [preventDuplicates] to false
   Future<T?>? off<T>(
     Widget Function() page, {
@@ -961,7 +957,7 @@ extension GetNavigationExt on FatimaInterface {
   ///
   /// If you're using the [BindingsInterface] api, you must define it here
   ///
-  /// By default, GetX will prevent you from push a route that you already in,
+  /// By default, Fatima will prevent you from push a route that you already in,
   /// if you want to push anyway, set [preventDuplicates] to false
   Future<T?>? offAll<T>(
     Widget Function() page, {

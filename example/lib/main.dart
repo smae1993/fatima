@@ -3,9 +3,8 @@ import 'package:fatima/fatima.dart';
 import 'package:flutter/material.dart';
 
 Future<void> main() async {
-  // fatimaConfig = FatimaConfig();
   await Storage.init();
-  // await Storage().erase();
+
   runApp(const MyApp());
 }
 
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FatimaApp(
-      title: 'Fatima Framework',
+      title: 'Fatima Documentation',
       defaultTransition: Transition.circularReveal,
       // color: Colors.blueGrey,
       themeMode: ThemeMode.dark,

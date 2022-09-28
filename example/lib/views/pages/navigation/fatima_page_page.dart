@@ -7,7 +7,6 @@ class FatimaPagePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const AppLayout(
-        selected: "Page", body: MarkdownView("overview_en.md"));
+    return const AppLayout(selected: "Page", body: MarkdownView("page_en.md"));
   }
 }
