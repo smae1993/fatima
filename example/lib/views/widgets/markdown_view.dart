@@ -1,13 +1,14 @@
 import 'package:example/controllers/code_element_builder.dart';
-import 'package:example/controllers/widget_element_builder.dart';
 import 'package:fatima/fatima.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
 class MarkdownView extends StatelessWidget {
-  const MarkdownView(this.fileName, {super.key});
+  const MarkdownView(this.fileName, {this.widgets, super.key});
   final String fileName;
+
+  final Map<String, Widget>? widgets;
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +33,7 @@ class MarkdownView extends StatelessWidget {
               }
             },
             builders: {
-              'code': CodeElementBuilder(),
-              'widget': WidgetElementBuilder(),
+              'code': CodeElementBuilder(widgets: widgets),
             },
           );
         }

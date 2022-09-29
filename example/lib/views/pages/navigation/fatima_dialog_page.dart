@@ -10,29 +10,18 @@ class FatimaDialogPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppLayout(
         selected: "Dialog",
-        body: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SizedBox(
-                // height: 500,
-                child: const MarkdownView("overview_en.md"),
-              ),
-              Row(
-                children: [
-                  ElevatedButton(
-                      onPressed: () {
-                        Fatima.dialog(SizedBox(
-                          width: 100,
-                          height: 100,
-                          child: Container(color: Colors.amberAccent),
-                        ));
-                      },
-                      child: Text("SimpleDialog"))
-                ],
-              )
-            ],
-          ),
+        body: MarkdownView(
+          "dialog_en.md",
+          widgets: {'example': example()},
         ));
+  }
+
+  Widget example() {
+    return Row(
+      children: [
+        ElevatedButton(onPressed: () {}, child: Text("simple dialog")),
+        ElevatedButton(onPressed: () {}, child: Text("simple dialog")),
+      ],
+    );
   }
 }

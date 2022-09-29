@@ -249,8 +249,8 @@ class FatimaApp extends StatelessWidget {
                     ? TextDirection.rtl
                     : TextDirection.ltr),
             child: builder == null
-                ? (child ?? Material())
-                : builder!(context, child ?? Material()),
+                ? (child ?? const Material())
+                : builder!(context, child ?? const Material()),
           ),
           title: title,
           onGenerateTitle: onGenerateTitle,
@@ -275,7 +275,7 @@ class FatimaApp extends StatelessWidget {
           showSemanticsDebugger: showSemanticsDebugger,
           debugShowCheckedModeBanner: debugShowCheckedModeBanner,
           shortcuts: shortcuts,
-          scrollBehavior: scrollBehavior,
+          scrollBehavior: scrollBehavior ?? FatimaScrollBehavior(),
           useInheritedMediaQuery: useInheritedMediaQuery,
         );
       }),
