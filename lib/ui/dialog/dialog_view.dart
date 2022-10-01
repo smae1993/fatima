@@ -1,15 +1,13 @@
-
-
 // import 'dart:math';
 // import 'dart:ui';
 
+// import 'package:fatima/ui/dialog/dialog_config.dart';
 // import 'package:flutter/material.dart';
 
-// class DialogView extends StatelessWidget{
-//  const DialogView(
+// class DialogView extends StatelessWidget {
+//   const DialogView(
 //       {Key? key,
 //       required this.child,
-//       this.config,
 //       this.title,
 //       this.closeButton,
 //       this.leftBar,
@@ -49,6 +47,9 @@
 
 //   /// on dialog close callback
 //   final Function()? onClose;
+
+//   /// on dialog close callback
+//   final DialogConfig config;
 
 //   /// function that determines final dialog size
 //   Size dialogSize(BuildContext context) {
@@ -138,5 +139,4 @@
 //           )),
 //     ));
 //   }
-
 // }
