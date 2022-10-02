@@ -1,1 +1,1 @@
-class FatimaTextFieldConfig {}
+class TextFieldConfig {}

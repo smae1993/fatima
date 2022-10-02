@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
     return FatimaApp(
       title: 'Fatima Documentation',
       defaultTransition: Transition.circularReveal,
+      textDirection: TextDirection.rtl,
       // color: Colors.blueGrey,
       themeMode: ThemeMode.dark,
       // scrollBehavior: MyCustomScrollBehavior(),

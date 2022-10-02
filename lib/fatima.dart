@@ -1,7 +1,5 @@
 library fatima;
 
-import 'package:fatima/fatima_config.dart';
-
 export 'fatima_main.dart';
 export 'ui/fatima_ui.dart';
 export 'utils/fatima_utils.dart';
@@ -12,12 +10,6 @@ export 'storage/fatima_storage.dart';
 
 export 'instance/instance_extension.dart';
 // export 'fatima_app.dart';
-
-var fatimaConfig = FatimaConfig();
-
-
-
-
 
 /// A UI Framework for Flutter.
 // class Fatima {

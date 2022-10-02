@@ -1,12 +1,14 @@
 // import 'package:fatima/core/log.dart';
 import 'package:fatima/navigation/src/router_report.dart';
 import 'package:fatima/state_manager/src/controller/fatima_state.dart';
+import 'package:fatima/ui/fatima_ui_config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fatima/fatima.dart';
 
 class FatimaApp extends StatelessWidget {
+  final UIConfig? uiConfig;
   final GlobalKey<NavigatorState>? navigatorKey;
   final GlobalKey<ScaffoldMessengerState>? scaffoldMessengerKey;
   final Widget? home;
@@ -66,6 +68,7 @@ class FatimaApp extends StatelessWidget {
   final bool useInheritedMediaQuery;
 
   const FatimaApp({
+    this.uiConfig,
     Key? key,
     this.navigatorKey,
     this.scaffoldMessengerKey,
@@ -129,6 +132,7 @@ class FatimaApp extends StatelessWidget {
         super(key: key);
 
   const FatimaApp.router({
+    this.uiConfig,
     Key? key,
     this.routeInformationProvider,
     this.scaffoldMessengerKey,
@@ -195,38 +199,38 @@ class FatimaApp extends StatelessWidget {
       binds: [
         Bind.lazyPut<FatimaMaterialController>(
           () => FatimaMaterialController(
-            ConfigData(
-              backButtonDispatcher: backButtonDispatcher,
-              binds: binds,
-              customTransition: customTransition,
-              defaultGlobalState: defaultGlobalState,
-              defaultTransition: defaultTransition,
-              enableLog: enableLog,
-              fallbackLocale: fallbackLocale,
-              fatimaPages: fatimaPages,
-              home: home,
-              initialRoute: initialRoute,
-              locale: locale,
-              logWriterCallback: logWriterCallback,
-              navigatorKey: navigatorKey,
-              navigatorObservers: navigatorObservers,
-              onDispose: onDispose,
-              onInit: onInit,
-              onReady: onReady,
-              opaqueRoute: opaqueRoute,
-              popGesture: popGesture,
-              routeInformationParser: routeInformationParser,
-              routeInformationProvider: routeInformationProvider,
-              routerDelegate: routerDelegate,
-              routingCallback: routingCallback,
-              scaffoldMessengerKey: scaffoldMessengerKey,
-              smartManagement: smartManagement,
-              transitionDuration: transitionDuration,
-              translations: translations,
-              translationsKeys: translationsKeys,
-              unknownRoute: unknownRoute,
-            ),
-          ),
+              ConfigData(
+                backButtonDispatcher: backButtonDispatcher,
+                binds: binds,
+                customTransition: customTransition,
+                defaultGlobalState: defaultGlobalState,
+                defaultTransition: defaultTransition,
+                enableLog: enableLog,
+                fallbackLocale: fallbackLocale,
+                fatimaPages: fatimaPages,
+                home: home,
+                initialRoute: initialRoute,
+                locale: locale,
+                logWriterCallback: logWriterCallback,
+                navigatorKey: navigatorKey,
+                navigatorObservers: navigatorObservers,
+                onDispose: onDispose,
+                onInit: onInit,
+                onReady: onReady,
+                opaqueRoute: opaqueRoute,
+                popGesture: popGesture,
+                routeInformationParser: routeInformationParser,
+                routeInformationProvider: routeInformationProvider,
+                routerDelegate: routerDelegate,
+                routingCallback: routingCallback,
+                scaffoldMessengerKey: scaffoldMessengerKey,
+                smartManagement: smartManagement,
+                transitionDuration: transitionDuration,
+                translations: translations,
+                translationsKeys: translationsKeys,
+                unknownRoute: unknownRoute,
+              ),
+              uiConfig ?? UIConfig()),
           onClose: () {
             Fatima.clearTranslations();
             RouterReportManager.dispose();
@@ -255,12 +259,12 @@ class FatimaApp extends StatelessWidget {
           title: title,
           onGenerateTitle: onGenerateTitle,
           color: primaryColor,
-          theme: controller.theme ?? theme ?? ThemeData.fallback(),
-          darkTheme: controller.darkTheme ??
+          theme: controller.uiConfig.theme ?? theme ?? ThemeData.fallback(),
+          darkTheme: controller.uiConfig.darkTheme ??
               darkTheme ??
               theme ??
               ThemeData.fallback(),
-          themeMode: controller.themeMode ?? themeMode,
+          themeMode: controller.uiConfig.themeMode ?? themeMode,
           locale: Fatima.locale ?? locale,
           scaffoldMessengerKey:
               scaffoldMessengerKey ?? controller.scaffoldMessengerKey,

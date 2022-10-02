@@ -14,10 +14,10 @@ class Button extends StatelessWidget {
     this.text,
     this.icon,
   }) {
-    config ??= fatimaConfig.btnConfig;
-    if (type != null) {
-      config!.type = type!;
-    }
+    // config ??= fatimaConfig.btnConfig;
+    // if (type != null) {
+    //   config!.type = type!;
+    // }
   }
 
   Function()? onPressed;

@@ -1,4 +1,5 @@
 import 'package:fatima/state_manager/src/controller/fatima_state.dart';
+import 'package:fatima/ui/fatima_ui_config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -72,7 +73,7 @@ class ConfigData {
 }
 
 class FatimaMaterialController extends FullLifeCycleController {
-  FatimaMaterialController(this.config);
+  FatimaMaterialController(this.config, this.uiConfig);
 
   final _box = Storage();
 
@@ -83,6 +84,7 @@ class FatimaMaterialController extends FullLifeCycleController {
   late final RouterDelegate<Object>? routerDelegate;
   late final RouteInformationParser<Object> routeInformationParser;
   final ConfigData config;
+  final UIConfig uiConfig;
 
   @override
   void onReady() {
@@ -156,43 +158,43 @@ class FatimaMaterialController extends FullLifeCycleController {
     // defaultDialogTransitionCurve = Curves.easeOutQuad;
     // defaultDialogTransitionDuration = Duration(milliseconds: 300);
 
-    theme = ThemeData(
-        fontFamily: 'IranYekan',
-        // elevatedButtonTheme: ElevatedButtonThemeData(
-        //     style: ElevatedButton.styleFrom(
-        //   foregroundColor: Colors.white,
-        //   backgroundColor: const Color(0xE8212121),
-        //   padding: const EdgeInsets.all(10.0),
-        //   shape: RoundedRectangleBorder(
-        //     borderRadius: BorderRadius.circular(10.0),
-        //   ),
-        // )),
-        appBarTheme: AppBarTheme(
-            backgroundColor: Colors.grey.shade200,
-            foregroundColor: Colors.black54),
-        colorScheme: ColorScheme.light(
-          primary: _box.read<int>("primaryColor") != null
-              ? Color(_box.read<int>("primaryColor")!)
-              : (config.primaryColor ?? Colors.blue),
-        ));
+    // theme = ThemeData(
+    //     fontFamily: 'IranYekan',
+    //     // elevatedButtonTheme: ElevatedButtonThemeData(
+    //     //     style: ElevatedButton.styleFrom(
+    //     //   foregroundColor: Colors.white,
+    //     //   backgroundColor: const Color(0xE8212121),
+    //     //   padding: const EdgeInsets.all(10.0),
+    //     //   shape: RoundedRectangleBorder(
+    //     //     borderRadius: BorderRadius.circular(10.0),
+    //     //   ),
+    //     // )),
+    //     appBarTheme: AppBarTheme(
+    //         backgroundColor: Colors.grey.shade200,
+    //         foregroundColor: Colors.black54),
+    //     colorScheme: ColorScheme.light(
+    //       primary: _box.read<int>("primaryColor") != null
+    //           ? Color(_box.read<int>("primaryColor")!)
+    //           : (config.primaryColor ?? Colors.blue),
+    //     ));
 
-    darkTheme = ThemeData(
-        fontFamily: 'IranYekan',
-        elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ElevatedButton.styleFrom(
-          foregroundColor: Colors.white,
-          backgroundColor: const Color(0xE8212121),
-          padding: const EdgeInsets.all(10.0),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-        )),
-        appBarTheme: const AppBarTheme(backgroundColor: Color(0xFF282828)),
-        colorScheme: ColorScheme.dark(
-          primary: _box.read<int>("primaryColor") != null
-              ? Color(_box.read<int>("primaryColor")!)
-              : (config.primaryColor ?? Colors.blue),
-        ));
+    // darkTheme = ThemeData(
+    //     fontFamily: 'IranYekan',
+    //     elevatedButtonTheme: ElevatedButtonThemeData(
+    //         style: ElevatedButton.styleFrom(
+    //       foregroundColor: Colors.white,
+    //       backgroundColor: const Color(0xE8212121),
+    //       padding: const EdgeInsets.all(10.0),
+    //       shape: RoundedRectangleBorder(
+    //         borderRadius: BorderRadius.circular(10.0),
+    //       ),
+    //     )),
+    //     appBarTheme: const AppBarTheme(backgroundColor: Color(0xFF282828)),
+    //     colorScheme: ColorScheme.dark(
+    //       primary: _box.read<int>("primaryColor") != null
+    //           ? Color(_box.read<int>("primaryColor")!)
+    //           : (config.primaryColor ?? Colors.blue),
+    //     ));
   }
 
   String cleanRouteName(String name) {
@@ -208,9 +210,9 @@ class FatimaMaterialController extends FullLifeCycleController {
 
   bool testMode = false;
   Key? unikey;
-  ThemeData? theme;
-  ThemeData? darkTheme;
-  ThemeMode? themeMode;
+  // ThemeData? theme;
+  // ThemeData? darkTheme;
+  // ThemeMode? themeMode;
 
   final scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
 
@@ -254,37 +256,40 @@ class FatimaMaterialController extends FullLifeCycleController {
   }
 
   void setTheme(ThemeData value) {
-    if (darkTheme == null) {
-      theme = value;
+    if (uiConfig.darkTheme == null) {
+      uiConfig.theme = value;
     } else {
       if (value.brightness == Brightness.light) {
-        theme = value;
+        uiConfig.theme = value;
       } else {
-        darkTheme = value;
+        uiConfig.darkTheme = value;
       }
     }
     update();
   }
 
   void setThemeMode(ThemeMode value) {
-    themeMode = value;
+    uiConfig.themeMode = value;
     update();
   }
 
   void toggleThemeMode() {
-    themeMode =
-        (themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark);
+    uiConfig.themeMode = (uiConfig.themeMode == ThemeMode.dark
+        ? ThemeMode.light
+        : ThemeMode.dark);
     update();
   }
+
+  void changeThemeStyle(UIStyle style) {}
 
   void changePrimaryColor(Color color) {
     _box.write("primaryColor", color.value);
 
-    theme = theme!.copyWith(
+    uiConfig.theme = uiConfig.theme!.copyWith(
         colorScheme: ColorScheme.light(
       primary: color,
     ));
-    darkTheme = darkTheme!.copyWith(
+    uiConfig.darkTheme = uiConfig.darkTheme!.copyWith(
         colorScheme: ColorScheme.dark(
       primary: color,
     ));

@@ -33,6 +33,7 @@ class CodeElementBuilder extends MarkdownElementBuilder {
               .size
               .width,
           child: Row(
+            textDirection: TextDirection.ltr,
             children: [
               Expanded(
                   child: Card(
@@ -41,14 +42,16 @@ class CodeElementBuilder extends MarkdownElementBuilder {
                   borderRadius: BorderRadius.circular(5),
                 ),
                 clipBehavior: Clip.antiAlias,
-                child: HighlightView(
-                  tabSize: 4,
-                  element.textContent,
-                  language: language,
-                  theme: Fatima.isDarkMode ? darkTheme : githubTheme,
-                  padding: const EdgeInsets.all(8),
-                  textStyle: GoogleFonts.robotoMono(),
-                ),
+                child: Directionality(
+                    textDirection: TextDirection.ltr,
+                    child: HighlightView(
+                      tabSize: 4,
+                      element.textContent,
+                      language: language,
+                      theme: Fatima.isDarkMode ? darkTheme : githubTheme,
+                      padding: const EdgeInsets.all(8),
+                      textStyle: GoogleFonts.robotoMono(),
+                    )),
               )),
               MaterialButton(
                   padding: const EdgeInsets.all(15),

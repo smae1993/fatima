@@ -19,8 +19,15 @@ class FatimaDialogPage extends StatelessWidget {
   Widget example() {
     return Row(
       children: [
-        ElevatedButton(onPressed: () {}, child: Text("simple dialog")),
-        ElevatedButton(onPressed: () {}, child: Text("simple dialog")),
+        ElevatedButton(
+            onPressed: () {
+              Fatima.dialog(SizedBox(
+                width: 200,
+                height: 200,
+              ));
+            },
+            child: Text("Simple dialog")),
+        ElevatedButton(onPressed: () {}, child: Text("Confirmation dialog")),
       ],
     );
   }

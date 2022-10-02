@@ -17,7 +17,7 @@ class AppLayout extends StatelessWidget {
           Fatima.toggleThemeMode();
         }), icon: Updater<FatimaMaterialController>(
           builder: (controller) {
-            return Icon(controller.themeMode == ThemeMode.dark
+            return Icon(controller.uiConfig.themeMode == ThemeMode.dark
                 ? Icons.sunny
                 : Icons.dark_mode);
           },
@@ -56,7 +56,7 @@ class AppLayout extends StatelessWidget {
                               "Fatima Flutter Kit",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 16),
+                                  fontWeight: FontWeight.w700, fontSize: 20),
                             )
                           ],
                         ),

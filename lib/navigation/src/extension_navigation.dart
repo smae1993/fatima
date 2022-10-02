@@ -2,6 +2,7 @@ import 'dart:ui' as ui;
 
 import 'package:fatima/fatima.dart';
 import 'package:fatima/fatima_interface.dart';
+import 'package:fatima/ui/dialog/dialog_view.dart';
 import 'package:flutter/material.dart';
 
 import 'dialog/dialog_route.dart';
@@ -86,7 +87,10 @@ extension ExtensionDialog on FatimaInterface {
           return Theme(data: theme, child: pageChild);
         });
         if (useSafeArea) {
-          dialog = SafeArea(child: dialog);
+          dialog = SafeArea(
+              child: DialogView(
+            child: dialog,
+          ));
         }
         return dialog;
       },
