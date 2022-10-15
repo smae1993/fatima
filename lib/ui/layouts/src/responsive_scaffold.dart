@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-// import 'package:fatima/ui/fatima_ui.dart' as ui;
+import 'package:fatima/ui/fatima_ui.dart' as ui;
 
 class ResponsiveScaffold extends StatelessWidget {
   const ResponsiveScaffold(
       {required this.body,
       this.drawer,
+      this.padding,
       // this.appbar,
       this.backgroundColor,
       this.title,
@@ -18,20 +19,32 @@ class ResponsiveScaffold extends StatelessWidget {
   final Widget? title;
   final List<Widget> actions;
 
+  final EdgeInsets? padding;
+
   @override
   Widget build(BuildContext context) {
     bool fixedDrawer =
         (drawer != null && MediaQuery.of(context).size.width > 768);
 
-    // actions.add(const SizedBox(
-    //   width: 10,
-    // ));
+    var appBar = PreferredSize(
+        preferredSize: const Size(0, 66),
+        child: Padding(
+          padding: padding ?? EdgeInsets.zero,
+          child: AppBar(
+            // automaticallyImplyLeading: true,
+            title: title,
+            actions: actions,
+          ),
+        ));
 
-    AppBar appBar = AppBar(
-      automaticallyImplyLeading: true,
-      title: title,
-      actions: actions,
-    );
+    // var appBar = ui.AppBarHolder(
+    //   AppBar(
+    //     // automaticallyImplyLeading: true,
+    //     title: title,
+    //     actions: actions,
+    //   ),
+    //   padding: const EdgeInsets.all(5),
+    // );
 
     return Scaffold(
       backgroundColor: backgroundColor,
@@ -42,13 +55,7 @@ class ResponsiveScaffold extends StatelessWidget {
                 drawer!,
                 Expanded(
                     child: Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(5),
-                      child: appBar,
-                    ),
-                    Expanded(child: body)
-                  ],
+                  children: [appBar, Expanded(child: body)],
                 ))
               ],
             )

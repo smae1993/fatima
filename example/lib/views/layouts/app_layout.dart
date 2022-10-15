@@ -12,6 +12,7 @@ class AppLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return ui.ResponsiveScaffold(
       title: Text(selected),
+      padding: const EdgeInsets.all(10),
       actions: [
         IconButton(onPressed: (() {
           Fatima.toggleThemeMode();
