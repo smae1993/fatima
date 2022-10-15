@@ -42,7 +42,13 @@ class ResponsiveScaffold extends StatelessWidget {
                 drawer!,
                 Expanded(
                     child: Column(
-                  children: [appBar, Expanded(child: body)],
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(5),
+                      child: appBar,
+                    ),
+                    Expanded(child: body)
+                  ],
                 ))
               ],
             )
