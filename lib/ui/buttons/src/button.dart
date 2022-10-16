@@ -1,58 +1,108 @@
 import 'package:fatima/fatima.dart';
-import 'package:fatima/ui/buttons/fatima_button_config.dart';
 import 'package:fatima/ui/buttons/fatima_button_type.dart';
+import 'package:fatima/ui/buttons/src/styles/filled_button_style.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class Button extends StatelessWidget {
-  Button({
+class Button extends ButtonStyleButton {
+  const Button({
     super.key,
-    this.config,
+    required super.onPressed,
+    super.onLongPress,
+    super.onHover,
+    super.onFocusChange,
+    super.style,
+    super.focusNode,
+    super.autofocus = false,
+    super.clipBehavior = Clip.none,
+    super.statesController,
     this.type,
-    this.onPressed,
-    this.child,
-    this.text,
-    this.icon,
-  }) {
-    // config ??= fatimaConfig.btnConfig;
-    // if (type != null) {
-    //   config!.type = type!;
-    // }
-  }
+    required super.child,
+  });
 
-  Function()? onPressed;
-
-  ButtonConfig? config;
   final ButtonType? type;
-  Widget? child;
-  String? text;
-  Widget? icon;
 
   @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(onPressed: onPressed, child: child);
-    // switch (config!.type) {
-    //   case ButtonType.contained:
-    //     return ContainedBtn(
-    //       onPressed: onPressed,
-    //     );
-    //   case ButtonType.text:
-    //     return TextBtn();
-    //   case ButtonType.outlined:
-    //     return OutlineBtn();
-    //   case ButtonType.glass:
-    //     return FatimaGlassButton();
-    //   default:
-    //     return ContainedBtn();
-    // }
+  ButtonStyle defaultStyleOf(BuildContext context) {
+    switch (type) {
+      case ButtonType.filled:
+        return FilledButtonStyle(context).style;
+      case ButtonType.text:
+        return FilledButtonStyle(context).style;
+      case ButtonType.outlined:
+        return FilledButtonStyle(context).style;
+      default:
+        return FilledButtonStyle(context).style;
+    }
   }
 
-  Widget generateChild() {
-    return child ??
-        Row(
-          children: [
-            Text(text ?? "Button"),
-          ],
-        );
+  @override
+  ButtonStyle? themeStyleOf(BuildContext context) {
+    switch (type) {
+      case ButtonType.filled:
+        return ElevatedButtonTheme.of(context).style;
+      case ButtonType.text:
+        return TextButtonTheme.of(context).style;
+      case ButtonType.outlined:
+        return OutlinedButtonTheme.of(context).style;
+      default:
+        return ElevatedButtonTheme.of(context).style;
+    }
   }
+
+  factory Button.text({
+    Key? key,
+    required VoidCallback? onPressed,
+    VoidCallback? onLongPress,
+    ValueChanged<bool>? onHover,
+    ValueChanged<bool>? onFocusChange,
+    ButtonStyle? style,
+    FocusNode? focusNode,
+    bool? autofocus,
+    Clip? clipBehavior,
+    MaterialStatesController? statesController,
+    required Widget child,
+  }) =>
+      Button(
+        key: key,
+        onPressed: onPressed,
+        onLongPress: onLongPress,
+        onHover: onHover,
+        onFocusChange: onFocusChange,
+        style: style,
+        focusNode: focusNode,
+        autofocus: autofocus = false,
+        clipBehavior: clipBehavior = Clip.none,
+        statesController: statesController,
+        type: ButtonType.text,
+        child: child,
+      );
+
+  factory Button.outlined({
+    Key? key,
+    required VoidCallback? onPressed,
+    VoidCallback? onLongPress,
+    ValueChanged<bool>? onHover,
+    ValueChanged<bool>? onFocusChange,
+    ButtonStyle? style,
+    FocusNode? focusNode,
+    bool? autofocus,
+    Clip? clipBehavior,
+    MaterialStatesController? statesController,
+    required Widget child,
+  }) =>
+      Button(
+        key: key,
+        onPressed: onPressed,
+        onLongPress: onLongPress,
+        onHover: onHover,
+        onFocusChange: onFocusChange,
+        style: style,
+        focusNode: focusNode,
+        autofocus: autofocus = false,
+        clipBehavior: clipBehavior = Clip.none,
+        statesController: statesController,
+        type: ButtonType.outlined,
+        child: child,
+      );
 }

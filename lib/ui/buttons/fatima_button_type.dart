@@ -1,6 +1,1 @@
-enum ButtonType {
-  contained,
-  text,
-  outlined,
-  glass,
-}
+enum ButtonType { filled, text, outlined }

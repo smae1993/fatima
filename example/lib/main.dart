@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 Future<void> main() async {
   await Storage.init();
-
+  Storage().erase();
   runApp(const MyApp());
 }
 

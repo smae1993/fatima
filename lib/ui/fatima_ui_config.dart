@@ -53,7 +53,7 @@ class UIConfig {
             colorScheme: ColorScheme.light(
               primary: _box.read<int>("primaryColor") != null
                   ? Color(_box.read<int>("primaryColor")!)
-                  : (primaryColor ?? Colors.blue),
+                  : (primaryColor ?? Colors.red),
             ));
 
     darkTheme = ThemeData(
@@ -61,7 +61,7 @@ class UIConfig {
         elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
           foregroundColor: Colors.white,
-          backgroundColor: const Color(0xE8212121),
+          backgroundColor: Color.fromARGB(232, 113, 31, 31),
           padding: const EdgeInsets.all(10.0),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
