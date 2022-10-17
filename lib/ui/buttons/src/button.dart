@@ -1,6 +1,8 @@
 import 'package:fatima/fatima.dart';
 import 'package:fatima/ui/buttons/fatima_button_type.dart';
 import 'package:fatima/ui/buttons/src/styles/filled_button_style.dart';
+import 'package:fatima/ui/buttons/src/styles/outline_button_style.dart';
+import 'package:fatima/ui/buttons/src/styles/text_button_style.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -26,13 +28,13 @@ class Button extends ButtonStyleButton {
   ButtonStyle defaultStyleOf(BuildContext context) {
     switch (type) {
       case ButtonType.filled:
-        return FilledButtonStyle(context).style;
+        return FilledButtonStyle().style;
       case ButtonType.text:
-        return FilledButtonStyle(context).style;
+        return TextButtonStyle().style;
       case ButtonType.outlined:
-        return FilledButtonStyle(context).style;
+        return OutlinedButtonStyle().style;
       default:
-        return FilledButtonStyle(context).style;
+        return FilledButtonStyle().style;
     }
   }
 
@@ -56,7 +58,7 @@ class Button extends ButtonStyleButton {
     VoidCallback? onLongPress,
     ValueChanged<bool>? onHover,
     ValueChanged<bool>? onFocusChange,
-    ButtonStyle? style,
+    TextButtonStyle? style,
     FocusNode? focusNode,
     bool? autofocus,
     Clip? clipBehavior,
@@ -69,12 +71,40 @@ class Button extends ButtonStyleButton {
         onLongPress: onLongPress,
         onHover: onHover,
         onFocusChange: onFocusChange,
-        style: style,
+        style: style?.style,
         focusNode: focusNode,
         autofocus: autofocus = false,
         clipBehavior: clipBehavior = Clip.none,
         statesController: statesController,
         type: ButtonType.text,
+        child: child,
+      );
+
+  factory Button.filled({
+    Key? key,
+    required VoidCallback? onPressed,
+    VoidCallback? onLongPress,
+    ValueChanged<bool>? onHover,
+    ValueChanged<bool>? onFocusChange,
+    FilledButtonStyle? style,
+    FocusNode? focusNode,
+    bool? autofocus,
+    Clip? clipBehavior,
+    MaterialStatesController? statesController,
+    required Widget child,
+  }) =>
+      Button(
+        key: key,
+        onPressed: onPressed,
+        onLongPress: onLongPress,
+        onHover: onHover,
+        onFocusChange: onFocusChange,
+        style: style?.style,
+        focusNode: focusNode,
+        autofocus: autofocus = false,
+        clipBehavior: clipBehavior = Clip.none,
+        statesController: statesController,
+        type: ButtonType.outlined,
         child: child,
       );
 
@@ -84,7 +114,7 @@ class Button extends ButtonStyleButton {
     VoidCallback? onLongPress,
     ValueChanged<bool>? onHover,
     ValueChanged<bool>? onFocusChange,
-    ButtonStyle? style,
+    OutlinedButtonStyle? style,
     FocusNode? focusNode,
     bool? autofocus,
     Clip? clipBehavior,
@@ -97,7 +127,7 @@ class Button extends ButtonStyleButton {
         onLongPress: onLongPress,
         onHover: onHover,
         onFocusChange: onFocusChange,
-        style: style,
+        style: style?.style,
         focusNode: focusNode,
         autofocus: autofocus = false,
         clipBehavior: clipBehavior = Clip.none,
