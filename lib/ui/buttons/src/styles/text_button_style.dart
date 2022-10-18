@@ -1,4 +1,3 @@
-import 'package:fatima/fatima.dart';
 import 'package:fatima/ui/buttons/src/styles/fatima_button_style.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +26,6 @@ class TextButtonStyle extends FatimaButtonStyle {
   }) : super() {
     backgroundColor = Colors.transparent;
     shadowColor = Colors.transparent;
-    foregroundColor = foregroundColor ?? Fatima.theme.primaryColor;
     side = null;
     generateStyle();
   }

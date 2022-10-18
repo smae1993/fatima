@@ -1,15 +1,19 @@
 import 'package:fatima/fatima.dart';
+import 'package:fatima/ui/buttons/src/styles/filled_button_style.dart';
+import 'package:fatima/ui/buttons/src/styles/outline_button_style.dart';
 import 'package:fatima/ui/buttons/src/styles/text_button_style.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-abstract class FatimaButtonStyle {
+// ignore: must_be_immutable
+class Button extends ButtonStyleButton {
   Size? fixedSize;
   BorderSide? side;
-  late ButtonStyle style;
   TextStyle? textStyle;
   Color? backgroundColor;
+  Color? hoverBackgroundColor;
   Color? foregroundColor;
+  Color? hoverForegroundColor;
   Color? overlayColor;
   Color? shadowColor;
   Color? surfaceTintColor;
@@ -29,8 +33,25 @@ abstract class FatimaButtonStyle {
   Color? disabledBackgroundColor;
   Color? disabledForegroundColor;
 
+  bool square;
   double? radius;
-  FatimaButtonStyle({
+
+  Button({
+    super.key,
+    required super.onPressed,
+    super.onLongPress,
+    super.onHover,
+    super.onFocusChange,
+    super.style,
+    super.focusNode,
+    super.autofocus = false,
+    super.clipBehavior = Clip.none,
+    super.statesController,
+    this.type,
+
+    /// Style
+
+    this.square = false,
     this.radius = 15,
     this.fixedSize,
     this.side,
@@ -52,8 +73,156 @@ abstract class FatimaButtonStyle {
     this.enableFeedback,
     this.alignment,
     this.splashFactory,
-  }) {
-    final ThemeData theme = Theme.of(Fatima.context!);
+
+    /// end Style
+    required super.child,
+  });
+
+  final ButtonType? type;
+
+  @override
+  ButtonStyle defaultStyleOf(BuildContext context) {
+    return _initializeStyle(context);
+    // switch (type) {
+    //   case ButtonType.filled:
+    //     return FilledButtonStyle().style;
+    //   case ButtonType.text:
+    //     return TextButtonStyle().style;
+    //   case ButtonType.outlined:
+    //     return OutlinedButtonStyle().style;
+    //   default:
+    //     return FilledButtonStyle().style;
+    // }
+  }
+
+  @override
+  ButtonStyle? themeStyleOf(BuildContext context) {
+    switch (type) {
+      case ButtonType.filled:
+        return ElevatedButtonTheme.of(context).style;
+      case ButtonType.text:
+        return TextButtonTheme.of(context).style;
+      case ButtonType.outlined:
+        return OutlinedButtonTheme.of(context).style;
+      default:
+        return ElevatedButtonTheme.of(context).style;
+    }
+  }
+
+  factory Button.text({
+    Key? key,
+    required VoidCallback? onPressed,
+    VoidCallback? onLongPress,
+    ValueChanged<bool>? onHover,
+    ValueChanged<bool>? onFocusChange,
+    TextButtonStyle? style,
+    FocusNode? focusNode,
+    bool? autofocus,
+    Clip? clipBehavior,
+    MaterialStatesController? statesController,
+    required Widget child,
+  }) =>
+      Button(
+        key: key,
+        onPressed: onPressed,
+        onLongPress: onLongPress,
+        onHover: onHover,
+        onFocusChange: onFocusChange,
+        style: style?.style,
+        focusNode: focusNode,
+        autofocus: autofocus = false,
+        clipBehavior: clipBehavior = Clip.none,
+        statesController: statesController,
+        type: ButtonType.text,
+        child: child,
+      );
+
+  factory Button.filled({
+    Key? key,
+    required VoidCallback? onPressed,
+    VoidCallback? onLongPress,
+    ValueChanged<bool>? onHover,
+    ValueChanged<bool>? onFocusChange,
+    FilledButtonStyle? style,
+    FocusNode? focusNode,
+    bool? autofocus,
+    Clip? clipBehavior,
+    MaterialStatesController? statesController,
+    required Widget child,
+  }) =>
+      Button(
+        key: key,
+        onPressed: onPressed,
+        onLongPress: onLongPress,
+        onHover: onHover,
+        onFocusChange: onFocusChange,
+        style: style?.style,
+        focusNode: focusNode,
+        autofocus: autofocus = false,
+        clipBehavior: clipBehavior = Clip.none,
+        statesController: statesController,
+        type: ButtonType.outlined,
+        child: child,
+      );
+
+  factory Button.outlined({
+    Key? key,
+    required VoidCallback? onPressed,
+    VoidCallback? onLongPress,
+    ValueChanged<bool>? onHover,
+    ValueChanged<bool>? onFocusChange,
+    OutlinedButtonStyle? style,
+    FocusNode? focusNode,
+    bool? autofocus,
+    Clip? clipBehavior,
+    MaterialStatesController? statesController,
+    required Widget child,
+  }) =>
+      Button(
+        key: key,
+        onPressed: onPressed,
+        onLongPress: onLongPress,
+        onHover: onHover,
+        onFocusChange: onFocusChange,
+        style: style?.style,
+        focusNode: focusNode,
+        autofocus: autofocus = false,
+        clipBehavior: clipBehavior = Clip.none,
+        statesController: statesController,
+        type: ButtonType.outlined,
+        child: child,
+      );
+
+  factory Button.icon({
+    Key? key,
+    required VoidCallback? onPressed,
+    VoidCallback? onLongPress,
+    ValueChanged<bool>? onHover,
+    ValueChanged<bool>? onFocusChange,
+    OutlinedButtonStyle? style,
+    FocusNode? focusNode,
+    bool? autofocus,
+    Clip? clipBehavior,
+    MaterialStatesController? statesController,
+    required Widget child,
+  }) =>
+      Button(
+        key: key,
+        onPressed: onPressed,
+        onLongPress: onLongPress,
+        onHover: onHover,
+        onFocusChange: onFocusChange,
+        style: style?.style,
+        focusNode: focusNode,
+        autofocus: autofocus = false,
+        clipBehavior: clipBehavior = Clip.none,
+        statesController: statesController,
+        type: ButtonType.outlined,
+        child: child,
+      );
+
+  ButtonStyle _initializeStyle(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     final ColorScheme colorScheme = theme.colorScheme;
 
     /// Background Color
@@ -62,11 +231,19 @@ abstract class FatimaButtonStyle {
         ? backgroundColor!.withOpacity(0.12)
         : colorScheme.onSurface.withOpacity(0.12);
 
-    if (this is TextButtonStyle) {
+    if (type == ButtonType.text) {
       foregroundColor = foregroundColor ?? colorScheme.onBackground;
     } else {
       foregroundColor = foregroundColor ?? colorScheme.onPrimary;
     }
+
+    if (type == ButtonType.outlined || type == ButtonType.text) {
+      backgroundColor = Colors.transparent;
+      shadowColor = Colors.transparent;
+      if (type == ButtonType.outlined) {
+        side = BorderSide(width: 1, color: foregroundColor!);
+      }
+    } else {}
 
     disabledForegroundColor = foregroundColor != null
         ? foregroundColor!.withOpacity(0.38)
@@ -78,9 +255,7 @@ abstract class FatimaButtonStyle {
     visualDensity = visualDensity ?? theme.visualDensity;
     tapTargetSize = tapTargetSize ?? theme.materialTapTargetSize;
     animationDuration = animationDuration ?? kThemeChangeDuration;
-  }
 
-  void generateStyle() {
     /// Background Color
     final MaterialStateProperty<Color?> backgroundColorProp =
         _ButtonDefaultColor(backgroundColor, disabledBackgroundColor);
@@ -102,7 +277,7 @@ abstract class FatimaButtonStyle {
         _ButtonDefaultMouseCursor(
             mouseCursor ?? SystemMouseCursors.click, SystemMouseCursors.basic);
 
-    style = ButtonStyle(
+    return ButtonStyle(
       textStyle: MaterialStatePropertyAll<TextStyle?>(textStyle),
       backgroundColor: backgroundColorProp,
       foregroundColor: foregroundColorProp,
@@ -219,3 +394,6 @@ class _ButtonDefaultMouseCursor extends MaterialStateProperty<MouseCursor?>
     return enabledCursor;
   }
 }
+
+/// Button Types
+enum ButtonType { filled, text, outlined }

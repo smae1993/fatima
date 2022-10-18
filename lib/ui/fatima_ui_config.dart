@@ -1,7 +1,5 @@
-import 'package:fatima/ui/buttons/fatima_button_config.dart';
 import 'package:fatima/ui/cards/fatima_card_config.dart';
 import 'package:fatima/ui/dialog/dialog_config.dart';
-import 'package:fatima/ui/text_fields/fatima_text_field_config.dart';
 import 'package:flutter/material.dart';
 
 import '../fatima.dart';
@@ -18,17 +16,13 @@ class UIConfig {
   // Color borderColor;
   // Color foregroundColorl;
   DialogConfig? dialogConfig;
-  ButtonConfig? buttonConfig;
   CardConfig? cardConfig;
-  TextFieldConfig? textFieldConfig;
   UIConfig({
     this.style = UIStyle.filled,
     this.radius = 10,
     // this.backgroundColor
     this.dialogConfig,
-    this.buttonConfig,
     this.cardConfig,
-    this.textFieldConfig,
   }) {
     initializeThemes();
   }
