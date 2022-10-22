@@ -32,6 +32,8 @@ class UIConfig {
         ThemeData(
             fontFamily: 'Vazir',
             dialogTheme: DialogTheme(),
+            checkboxTheme: CheckboxThemeData(),
+
             // elevatedButtonTheme: ElevatedButtonThemeData(
             //     style: ElevatedButton.styleFrom(
             //   foregroundColor: Colors.white,
