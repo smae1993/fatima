@@ -1067,22 +1067,6 @@ extension FatimaNavigationExt on FatimaInterface {
 
   void appUpdate() => _fatimaController.update();
 
-  void changeTheme(ThemeData theme) {
-    _fatimaController.setTheme(theme);
-  }
-
-  void changeThemeMode(ThemeMode themeMode) {
-    _fatimaController.setThemeMode(themeMode);
-  }
-
-  void toggleThemeMode() {
-    _fatimaController.toggleThemeMode();
-  }
-
-  void setPrimaryColor(Color color) {
-    _fatimaController.changePrimaryColor(color);
-  }
-
   GlobalKey<NavigatorState>? addKey(GlobalKey<NavigatorState> newKey) {
     return _fatimaController.addKey(newKey);
   }
@@ -1234,7 +1218,7 @@ extension FatimaNavigationExt on FatimaInterface {
 
   Map<dynamic, FatimaDelegate> get keys => _fatimaController.keys;
 
-  FatimaMaterialController get rootController => _fatimaController;
+  FatimaController get rootController => _fatimaController;
 
   bool get defaultPopGesture => _fatimaController.defaultPopGesture;
   bool get defaultOpaqueRoute => _fatimaController.defaultOpaqueRoute;
@@ -1269,7 +1253,7 @@ extension FatimaNavigationExt on FatimaInterface {
   TDelegate? delegate<TDelegate extends RouterDelegate<TPage>, TPage>() =>
       _fatimaController.routerDelegate as TDelegate?;
 
-  FatimaMaterialController get _fatimaController => FatimaMaterialController.to;
+  FatimaController get _fatimaController => FatimaController.to;
 }
 
 extension OverlayExt on FatimaInterface {

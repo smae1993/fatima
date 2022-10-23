@@ -1,10 +1,12 @@
 import 'package:example/routes.dart';
 import 'package:fatima/fatima.dart';
+import 'package:fatima/ui/fatima_ui_config.dart';
 import 'package:flutter/material.dart';
 
 Future<void> main() async {
   await Storage.init();
   Storage().erase();
+
   runApp(const MyApp());
 }
 
@@ -19,11 +21,11 @@ class MyApp extends StatelessWidget {
       defaultTransition: Transition.circularReveal,
       textDirection: TextDirection.rtl,
       // color: Colors.blueGrey,
-      themeMode: ThemeMode.dark,
+      uiConfig: UIConfig(),
       // scrollBehavior: MyCustomScrollBehavior(),
       debugShowCheckedModeBanner: false,
 
-      fatimaPages: routes,
+      pages: routes,
     );
   }
 }

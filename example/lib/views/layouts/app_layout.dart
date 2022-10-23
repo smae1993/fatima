@@ -16,7 +16,7 @@ class AppLayout extends StatelessWidget {
       actions: [
         IconButton(onPressed: (() {
           Fatima.toggleThemeMode();
-        }), icon: Updater<FatimaMaterialController>(
+        }), icon: Updater<FatimaController>(
           builder: (controller) {
             return Icon(controller.uiConfig.themeMode == ThemeMode.dark
                 ? Icons.sunny
@@ -25,7 +25,7 @@ class AppLayout extends StatelessWidget {
         )),
         IconButton(onPressed: (() {
           Fatima.setPrimaryColor(Colors.blueGrey);
-        }), icon: Updater<FatimaMaterialController>(
+        }), icon: Updater<FatimaController>(
           builder: (controller) {
             return Icon(Icons.format_paint_rounded);
           },

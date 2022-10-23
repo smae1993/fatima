@@ -717,7 +717,7 @@ Cannot read the previousTitle for a route that has not yet been installed''',
 
         default:
           final customTransition =
-              context.get<FatimaMaterialController>().customTransition;
+              context.get<FatimaController>().customTransition;
           if (customTransition != null) {
             return customTransition.buildTransition(context, route.curve,
                 route.alignment, animation, secondaryAnimation, child);

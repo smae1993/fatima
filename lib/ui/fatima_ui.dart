@@ -1,5 +1,7 @@
 library fatima_ui;
 
+export 'fatima_ui_extension.dart';
+
 export 'layouts/fatima_layout.dart';
 export 'menu/fatima_menu.dart';
 

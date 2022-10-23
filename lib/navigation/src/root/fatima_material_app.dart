@@ -21,11 +21,11 @@ class FatimaApp extends StatelessWidget {
   final TransitionBuilder? builder;
   final String title;
   final GenerateAppTitle? onGenerateTitle;
-  final ThemeData? theme;
-  final ThemeData? darkTheme;
-  final ThemeMode themeMode;
+  // final ThemeData? theme;
+  // final ThemeData? darkTheme;
+  // final ThemeMode themeMode;
   final CustomTransition? customTransition;
-  final Color? primaryColor;
+  // final Color? primaryColor;
   final Map<String, Map<String, String>>? translationsKeys;
   final Translations? translations;
   final TextDirection? textDirection;
@@ -59,8 +59,8 @@ class FatimaApp extends StatelessWidget {
   final List<Bind> binds;
   final Duration? transitionDuration;
   final bool? defaultGlobalState;
-  final List<FatimaPage>? fatimaPages;
-  final FatimaPage? unknownRoute;
+  final List<FatimaPage>? pages;
+  final FatimaPage? unknownPage;
   final RouteInformationProvider? routeInformationProvider;
   final RouteInformationParser<Object>? routeInformationParser;
   final RouterDelegate<Object>? routerDelegate;
@@ -86,10 +86,10 @@ class FatimaApp extends StatelessWidget {
     this.textDirection,
     this.title = '',
     this.onGenerateTitle,
-    this.primaryColor,
-    this.theme,
-    this.darkTheme,
-    this.themeMode = ThemeMode.system,
+    // this.primaryColor,
+    // this.theme,
+    // this.darkTheme,
+    // this.themeMode = ThemeMode.system,
     this.locale,
     this.fallbackLocale,
     this.localizationsDelegates,
@@ -112,7 +112,7 @@ class FatimaApp extends StatelessWidget {
     this.onDispose,
     this.routingCallback,
     this.defaultTransition,
-    this.fatimaPages,
+    this.pages,
     this.opaqueRoute,
     this.enableLog = kDebugMode,
     this.logWriterCallback,
@@ -121,7 +121,7 @@ class FatimaApp extends StatelessWidget {
     this.defaultGlobalState,
     this.smartManagement = SmartManagement.full,
     this.binds = const [],
-    this.unknownRoute,
+    this.unknownPage,
     this.highContrastTheme,
     this.highContrastDarkTheme,
     this.actions,
@@ -142,13 +142,13 @@ class FatimaApp extends StatelessWidget {
     this.builder,
     this.title = '',
     this.onGenerateTitle,
-    this.primaryColor,
-    this.theme,
-    this.darkTheme,
+    // this.primaryColor,
+    // this.theme,
+    // this.darkTheme,
     this.useInheritedMediaQuery = false,
     this.highContrastTheme,
     this.highContrastDarkTheme,
-    this.themeMode = ThemeMode.system,
+    // this.themeMode = ThemeMode.system,
     this.locale,
     this.localizationsDelegates,
     this.localeListResolutionCallback,
@@ -181,9 +181,9 @@ class FatimaApp extends StatelessWidget {
     this.binds = const [],
     this.transitionDuration,
     this.defaultGlobalState,
-    this.fatimaPages,
+    this.pages,
     this.navigatorObservers,
-    this.unknownRoute,
+    this.unknownPage,
   })  : navigatorKey = null,
         onGenerateRoute = null,
         home = null,
@@ -197,8 +197,8 @@ class FatimaApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Binds(
       binds: [
-        Bind.lazyPut<FatimaMaterialController>(
-          () => FatimaMaterialController(
+        Bind.lazyPut<FatimaController>(
+          () => FatimaController(
               ConfigData(
                 backButtonDispatcher: backButtonDispatcher,
                 binds: binds,
@@ -207,7 +207,7 @@ class FatimaApp extends StatelessWidget {
                 defaultTransition: defaultTransition,
                 enableLog: enableLog,
                 fallbackLocale: fallbackLocale,
-                fatimaPages: fatimaPages,
+                fatimaPages: pages,
                 home: home,
                 initialRoute: initialRoute,
                 locale: locale,
@@ -228,7 +228,7 @@ class FatimaApp extends StatelessWidget {
                 transitionDuration: transitionDuration,
                 translations: translations,
                 translationsKeys: translationsKeys,
-                unknownRoute: unknownRoute,
+                unknownRoute: unknownPage,
               ),
               uiConfig ?? UIConfig()),
           onClose: () {
@@ -240,7 +240,7 @@ class FatimaApp extends StatelessWidget {
         ...binds,
       ],
       child: Builder(builder: (context) {
-        final controller = context.listen<FatimaMaterialController>();
+        final controller = context.listen<FatimaController>();
         return MaterialApp.router(
           routerDelegate: controller.routerDelegate,
           routeInformationParser: controller.routeInformationParser,
@@ -258,13 +258,14 @@ class FatimaApp extends StatelessWidget {
           ),
           title: title,
           onGenerateTitle: onGenerateTitle,
-          color: primaryColor,
-          theme: controller.uiConfig.theme ?? theme ?? ThemeData.fallback(),
+          color: controller.uiConfig.color,
+          theme: controller.uiConfig.theme ?? ThemeData.fallback(),
           darkTheme: controller.uiConfig.darkTheme ??
-              darkTheme ??
-              theme ??
+              controller.uiConfig.darkTheme ??
+              controller.uiConfig.theme ??
               ThemeData.fallback(),
-          themeMode: controller.uiConfig.themeMode ?? themeMode,
+          themeMode:
+              controller.uiConfig.themeMode ?? controller.uiConfig.themeMode,
           locale: Fatima.locale ?? locale,
           scaffoldMessengerKey:
               scaffoldMessengerKey ?? controller.scaffoldMessengerKey,

@@ -72,12 +72,12 @@ class ConfigData {
   });
 }
 
-class FatimaMaterialController extends FullLifeCycleController {
-  FatimaMaterialController(this.config, this.uiConfig);
+class FatimaController extends FullLifeCycleController {
+  FatimaController(this.config, this.uiConfig);
 
   final _box = Storage();
 
-  static FatimaMaterialController get to {
+  static FatimaController get to {
     return Fatima.find();
   }
 
