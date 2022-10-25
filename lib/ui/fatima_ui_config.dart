@@ -4,7 +4,7 @@ import 'package:fatima/ui/dialog/dialog_config.dart';
 import 'package:flutter/material.dart';
 
 class UIConfig {
-  FatimaController get _fatimaController => FatimaController.to;
+  // FatimaController get _fatimaController => FatimaController.to;
   final _box = Storage();
   bool storable = false;
   ThemeData? theme;
@@ -13,6 +13,8 @@ class UIConfig {
   Color color;
   UIStyle style;
   double radius;
+
+  ButtonConfig? buttonConfig;
   // Color backgroundColor;
   // Color borderColor;
   // Color foregroundColorl;
@@ -40,6 +42,7 @@ class UIConfig {
             ));
 
     darkTheme = ThemeData(
+        buttonTheme: ButtonThemeData(),
         fontFamily: 'Vazir',
         // elevatedButtonTheme: ElevatedButtonThemeData(
         //     style: ElevatedButton.styleFrom(

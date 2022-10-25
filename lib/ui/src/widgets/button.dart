@@ -397,3 +397,46 @@ class _ButtonDefaultMouseCursor extends MaterialStateProperty<MouseCursor?>
 
 /// Button Types
 enum ButtonType { filled, text, outlined }
+
+class ButtonConfig extends ButtonStyle {
+  const ButtonConfig({
+    this.borderColor,
+    this.disabledBorderColor,
+    this.disabledBackgroundColor,
+    this.disabledForegroundColor,
+    this.square = false,
+    this.radius = 15,
+    this.type,
+    super.alignment,
+    super.animationDuration,
+    super.backgroundColor,
+    super.elevation,
+    super.enableFeedback,
+    super.fixedSize,
+    super.foregroundColor,
+    super.maximumSize,
+    super.minimumSize,
+    super.mouseCursor,
+    super.overlayColor,
+    super.padding,
+    super.shadowColor,
+    super.shape,
+    super.side,
+    super.splashFactory,
+    super.surfaceTintColor,
+    super.tapTargetSize,
+    super.textStyle,
+    super.visualDensity,
+  }) : super();
+
+  final Color? borderColor;
+
+  final Color? disabledBackgroundColor;
+  final Color? disabledForegroundColor;
+  final Color? disabledBorderColor;
+
+  final bool square;
+  final double? radius;
+
+  final ButtonType? type;
+}

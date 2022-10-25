@@ -13,6 +13,8 @@ extension FatimaUiExtension on FatimaInterface {
     _fatimaController.setThemeMode(themeMode);
   }
 
+  void changeUiConfig() {}
+
   void toggleThemeMode() {
     _fatimaController.toggleThemeMode();
   }
