@@ -44,6 +44,7 @@ class UIConfig {
     darkTheme = ThemeData(
         buttonTheme: ButtonThemeData(),
         fontFamily: 'Vazir',
+
         // elevatedButtonTheme: ElevatedButtonThemeData(
         //     style: ElevatedButton.styleFrom(
         //   foregroundColor: Colors.white,

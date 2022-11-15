@@ -8,7 +8,7 @@ class FatimaInformationParser extends RouteInformationParser<RouteDecoder> {
   FatimaInformationParser({
     required this.initialRoute,
   }) {
-    Fatima.log('GetInformationParser is created !');
+    Fatima.log('FatimaInformationParser is created !');
   }
   @override
   SynchronousFuture<RouteDecoder> parseRouteInformation(
@@ -25,7 +25,7 @@ class FatimaInformationParser extends RouteInformationParser<RouteDecoder> {
       }
     }
 
-    Fatima.log('GetInformationParser: route location: $location');
+    Fatima.log('FatimaInformationParser: route location: $location');
 
     final routeName = location ?? initialRoute;
 
