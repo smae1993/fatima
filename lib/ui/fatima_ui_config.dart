@@ -4,7 +4,6 @@ import 'package:fatima/ui/dialog/dialog_config.dart';
 import 'package:flutter/material.dart';
 
 class UIConfig {
-  // FatimaController get _fatimaController => FatimaController.to;
   final _box = Storage();
   bool storable = false;
   ThemeData? theme;
