@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'Fatima Documentation',
       defaultTransition: Transition.circularReveal,
       textDirection: TextDirection.ltr,
+
       // color: Colors.blueGrey,
       uiConfig: UIConfig(),
       // scrollBehavior: MyCustomScrollBehavior(),
