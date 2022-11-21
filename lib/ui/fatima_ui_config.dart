@@ -39,7 +39,8 @@ class UIConfig {
               primary: _box.read<int>("primaryColor") != null
                   ? Color(_box.read<int>("primaryColor")!)
                   : (color),
-            ));
+            ),
+            appBarTheme: AppBarTheme());
 
     darkTheme = ThemeData(
         buttonTheme: ButtonThemeData(),
