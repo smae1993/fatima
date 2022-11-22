@@ -46,7 +46,7 @@ class AppLayout extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            ui.Image(
+                            Image.asset(
                               Images.logo.path(),
                               fit: BoxFit.contain,
                             ),
