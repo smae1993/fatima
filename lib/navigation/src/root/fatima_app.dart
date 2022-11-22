@@ -197,7 +197,7 @@ class FatimaApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Binds(
       binds: [
-        Bind.lazyPut<FatimaController>(
+        Bind.lazyRegister<FatimaController>(
           () => FatimaController(
               ConfigData(
                 backButtonDispatcher: backButtonDispatcher,

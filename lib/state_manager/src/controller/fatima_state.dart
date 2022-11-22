@@ -118,7 +118,7 @@ abstract class Bind<T> extends StatelessWidget {
 
   final Widget? child;
 
-  static Bind put<S>(
+  static Bind register<S>(
     S dependency, {
     String? tag,
     bool permanent = false,
@@ -131,14 +131,14 @@ abstract class Bind<T> extends StatelessWidget {
     );
   }
 
-  static Bind lazyPut<S>(
+  static Bind lazyRegister<S>(
     InstanceBuilderCallback<S> builder, {
     String? tag,
     bool fenix = true,
     // VoidCallback? onInit,
     VoidCallback? onClose,
   }) {
-    Fatima.lazyPut<S>(builder, tag: tag, fenix: fenix);
+    Fatima.lazyRegister<S>(builder, tag: tag, fenix: fenix);
     return _FactoryBind<S>(
       tag: tag,
       // initState: (_) {
@@ -189,7 +189,7 @@ abstract class Bind<T> extends StatelessWidget {
     final info = Fatima.getInstanceInfo<P>(tag: tag);
     final permanent = (info.isPermanent ?? false);
     delete<P>(tag: tag, force: permanent);
-    Fatima.lazyPut(builder, tag: tag, fenix: fenix ?? permanent);
+    Fatima.lazyRegister(builder, tag: tag, fenix: fenix ?? permanent);
   }
 
   factory Bind.builder({
@@ -457,7 +457,7 @@ class BindElement<T> extends InheritedElement {
             () => (widget.create?.call(this) ?? widget.init?.call());
         _isCreator = true;
         if (widget.lazy) {
-          Fatima.lazyPut<T>(_controllerBuilder!, tag: widget.tag);
+          Fatima.lazyRegister<T>(_controllerBuilder!, tag: widget.tag);
         } else {
           Fatima.register<T>(_controllerBuilder!(), tag: widget.tag);
         }

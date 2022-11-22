@@ -1,8 +1,8 @@
 import 'package:fatima/fatima.dart';
 import 'package:flutter/material.dart';
 
-abstract class View<T> extends StatelessWidget {
-  const View({Key? key}) : super(key: key);
+abstract class FatimaView<T> extends StatelessWidget {
+  const FatimaView({Key? key}) : super(key: key);
 
   final String? tag = null;
 

@@ -10,4 +10,4 @@ export 'src/layouts/responsive_scaffold.dart';
 
 /// Widgets
 export 'src/widgets/button.dart';
-export 'src/widgets/image.dart';
+// export 'src/widgets/image.dart';

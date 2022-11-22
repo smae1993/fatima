@@ -2,8 +2,8 @@ library fatima_navigation;
 
 export 'src/bottomsheet/bottomsheet.dart';
 export 'src/extension_navigation.dart';
-export 'src/root/fatima_cupertino_app.dart';
-export 'src/root/fatima_material_app.dart';
+// export 'src/root/fatima_cupertino_app.dart';
+export 'src/root/fatima_app.dart';
 export 'src/root/internacionalization.dart';
 export 'src/root/root_controller.dart';
 export 'src/routes/custom_transition.dart';

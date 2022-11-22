@@ -82,7 +82,7 @@ extension Inst on FatimaInterface {
   ///
   /// Subsequent calls to `Get.lazyPut()` with the same parameters
   /// (<[S]> and optionally [tag] will **not** override the original).
-  void lazyPut<S>(
+  void lazyRegister<S>(
     InstanceBuilderCallback<S> builder, {
     String? tag,
     bool? fenix,
@@ -293,7 +293,7 @@ extension Inst on FatimaInterface {
     final info = getInstanceInfo<P>(tag: tag);
     final permanent = (info.isPermanent ?? false);
     delete<P>(tag: tag, force: permanent);
-    lazyPut(builder, tag: tag, fenix: fenix ?? permanent);
+    lazyRegister(builder, tag: tag, fenix: fenix ?? permanent);
   }
 
   /// Generates the key based on [type] (and optionally a [name])
@@ -306,7 +306,7 @@ extension Inst on FatimaInterface {
   /// Even the persistent ones.
   /// This should be used at the end or tearDown of unit tests.
   ///
-  /// `clearFactory` clears the callbacks registered by [lazyPut]
+  /// `clearFactory` clears the callbacks registered by [lazyRegister]
   /// `clearRouteBindings` clears Instances associated with routes.
   ///
   bool resetInstance({bool clearRouteBindings = true}) {

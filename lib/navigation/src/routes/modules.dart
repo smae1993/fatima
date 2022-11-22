@@ -7,7 +7,7 @@ import '../router_report.dart';
 class Dependencies {
   void lazyPut<S>(InstanceBuilderCallback<S> builder,
       {String? tag, bool fenix = false}) {
-    Fatima.lazyPut<S>(builder, tag: tag, fenix: fenix);
+    Fatima.lazyRegister<S>(builder, tag: tag, fenix: fenix);
   }
 
   S call<S>() {
