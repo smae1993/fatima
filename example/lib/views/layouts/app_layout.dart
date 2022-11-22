@@ -10,7 +10,7 @@ class AppLayout extends StatelessWidget {
   final String selected;
   @override
   Widget build(BuildContext context) {
-    return ui.ResponsiveScaffold(
+    return ui.FaResponsiveScaffold(
       title: Text(selected),
       padding: const EdgeInsets.all(10),
       actions: [

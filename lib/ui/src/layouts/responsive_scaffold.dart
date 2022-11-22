@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 // import 'package:fatima/ui/fatima_ui.dart' as ui;
 
-class ResponsiveScaffold extends StatelessWidget {
-  const ResponsiveScaffold(
+class FaResponsiveScaffold extends StatelessWidget {
+  const FaResponsiveScaffold(
       {required this.body,
       this.drawer,
       this.padding,
