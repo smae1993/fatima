@@ -6,38 +6,30 @@ import 'package:flutter/material.dart';
 class UIConfig {
   final _box = Storage();
   bool storable = false;
-  ThemeData? theme;
+  ThemeData? lightTheme;
   ThemeData? darkTheme;
   ThemeMode? themeMode = ThemeMode.system;
-  Color color;
-  UIStyle style;
-  double radius;
+  Style? defaultStyle;
 
-  ButtonConfig? buttonConfig;
-  // Color backgroundColor;
-  // Color borderColor;
-  // Color foregroundColorl;
-  DialogConfig? dialogConfig;
-  CardConfig? cardConfig;
   UIConfig({
-    this.style = UIStyle.filled,
-    this.radius = 10,
-    this.color = Colors.red,
-    // this.backgroundColor
-    this.dialogConfig,
-    this.cardConfig,
+    this.lightTheme,
+    this.darkTheme,
   }) {
-    initializeThemes();
+    _initializeThemes();
   }
 
-  void initializeThemes() {
-    theme = theme ??
+  Color primaryColor() {
+    return themeMode == ThemeMode.dark
+        ? defaultStyle!.darkColors!.primaryColor!
+        : defaultStyle!.lightColors!.primaryColor!;
+  }
+
+  void _initializeThemes() {
+    lightTheme = lightTheme ??
         ThemeData(
             fontFamily: 'Vazir',
             colorScheme: ColorScheme.light(
-              primary: _box.read<int>("primaryColor") != null
-                  ? Color(_box.read<int>("primaryColor")!)
-                  : (color),
+              primary: Color(_box.read<int>("primaryColor")!),
             ),
             appBarTheme: AppBarTheme());
 
@@ -57,21 +49,11 @@ class UIConfig {
         // appBarTheme: const AppBarTheme(backgroundColor: Color(0xFF282828)),
         dialogTheme: DialogTheme(),
         colorScheme: ColorScheme.dark(
-          primary: _box.read<int>("primaryColor") != null
-              ? Color(_box.read<int>("primaryColor")!)
-              : color,
+          primary: Color(_box.read<int>("primaryColor")!),
         ));
   }
 
   bool changePrimaryColor() {
     return true;
   }
-}
-
-enum UIStyle {
-  filled,
-  outlined,
-  glassy,
-  gradient,
-  none,
 }

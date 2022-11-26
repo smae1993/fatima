@@ -258,11 +258,11 @@ class FatimaApp extends StatelessWidget {
           ),
           title: title,
           onGenerateTitle: onGenerateTitle,
-          color: controller.uiConfig.color,
-          theme: controller.uiConfig.theme ?? ThemeData.fallback(),
+          color: controller.uiConfig.primaryColor(),
+          theme: controller.uiConfig.lightTheme ?? ThemeData.fallback(),
           darkTheme: controller.uiConfig.darkTheme ??
               controller.uiConfig.darkTheme ??
-              controller.uiConfig.theme ??
+              controller.uiConfig.lightTheme ??
               ThemeData.fallback(),
           themeMode:
               controller.uiConfig.themeMode ?? controller.uiConfig.themeMode,

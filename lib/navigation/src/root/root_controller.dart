@@ -219,10 +219,10 @@ class FatimaController extends FullLifeCycleController {
   bool defaultPopGesture = FatimaPlatform.isIOS;
   bool defaultOpaqueRoute = true;
   Transition? defaultTransition;
-  Duration defaultTransitionDuration = Duration(milliseconds: 300);
+  Duration defaultTransitionDuration = const Duration(milliseconds: 300);
   Curve defaultTransitionCurve = Curves.easeOutQuad;
   Curve defaultDialogTransitionCurve = Curves.easeOutQuad;
-  Duration defaultDialogTransitionDuration = Duration(milliseconds: 300);
+  Duration defaultDialogTransitionDuration = const Duration(milliseconds: 300);
 
   final routing = Routing();
 
@@ -257,10 +257,10 @@ class FatimaController extends FullLifeCycleController {
 
   void setTheme(ThemeData value) {
     if (uiConfig.darkTheme == null) {
-      uiConfig.theme = value;
+      uiConfig.lightTheme = value;
     } else {
       if (value.brightness == Brightness.light) {
-        uiConfig.theme = value;
+        uiConfig.lightTheme = value;
       } else {
         uiConfig.darkTheme = value;
       }
@@ -280,12 +280,10 @@ class FatimaController extends FullLifeCycleController {
     update();
   }
 
-  void changeThemeStyle(UIStyle style) {}
-
   void changePrimaryColor(Color color) {
     _box.write("primaryColor", color.value);
 
-    uiConfig.theme = uiConfig.theme!.copyWith(
+    uiConfig.lightTheme = uiConfig.lightTheme!.copyWith(
         colorScheme: ColorScheme.light(
       primary: color,
     ));

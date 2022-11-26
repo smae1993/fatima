@@ -6,6 +6,7 @@ class Style {
   double? borderRadius;
   double? borderWidth;
   EdgeInsets? padding;
+  String? fontFamily;
   double? fontSize;
   double? fontWeight;
   TextAlign? textAlign;
