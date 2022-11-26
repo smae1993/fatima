@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 Future<void> main() async {
   await Storage.init();
   Storage().erase();
-
+  // ElevatedButton(style: ElevatedButton.styleFrom(),)
   runApp(const MyApp());
 }
 
