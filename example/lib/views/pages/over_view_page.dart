@@ -1,9 +1,7 @@
 import 'package:example/views/widgets/markdown_view.dart';
 import 'package:example/views/layouts/app_layout.dart';
 import 'package:fatima/fatima.dart';
-import 'package:fatima/ui/buttons/src/styles/filled_button_style.dart';
-import 'package:fatima/ui/buttons/src/styles/outline_button_style.dart';
-import 'package:fatima/ui/buttons/src/styles/text_button_style.dart';
+
 import 'package:flutter/material.dart';
 import 'package:fatima/ui/fatima_ui.dart';
 import 'package:fatima/ui/fatima_ui.dart' as ui;
@@ -27,40 +25,40 @@ class OverViewPage extends StatelessWidget {
   List<Widget> tests(BuildContext context) {
     return [
       Card(),
-      ui.Button.outlined(
-        style: OutlinedButtonStyle(foregroundColor: Colors.green),
-        child: Text("outlined button"),
-        onPressed: () {},
-      ),
-      SizedBox(
-        width: 10,
-      ),
-      ui.Button.text(
-        style: TextButtonStyle(foregroundColor: Colors.blue),
-        child: Text("outlined button"),
-        onPressed: () {},
-      ),
-      SizedBox(
-        width: 10,
-      ),
-      Button.text(
-        style: TextButtonStyle(foregroundColor: Colors.green),
-        child: Text("text button"),
-        onPressed: () {},
-      ),
-      SizedBox(
-        width: 10,
-      ),
-      Button.filled(
-        style: FilledButtonStyle(
-          backgroundColor: Colors.green,
-        ),
-        onPressed: () {},
-        child: Text("filled button"),
-        // style: FilledButtonStyle,
-        // ui.Button.filled(
-        //     // onPressed: () {},
-      ),
+      // ui.Button.outlined(
+      //   style: OutlinedButtonStyle(foregroundColor: Colors.green),
+      //   child: Text("outlined button"),
+      //   onPressed: () {},
+      // ),
+      // SizedBox(
+      //   width: 10,
+      // ),
+      // ui.Button.text(
+      //   style: TextButtonStyle(foregroundColor: Colors.blue),
+      //   child: Text("outlined button"),
+      //   onPressed: () {},
+      // ),
+      // SizedBox(
+      //   width: 10,
+      // ),
+      // Button.text(
+      //   style: TextButtonStyle(foregroundColor: Colors.green),
+      //   child: Text("text button"),
+      //   onPressed: () {},
+      // ),
+      // SizedBox(
+      //   width: 10,
+      // ),
+      // Button.filled(
+      //   style: FilledButtonStyle(
+      //     backgroundColor: Colors.green,
+      //   ),
+      //   onPressed: () {},
+      //   child: Text("filled button"),
+      //   // style: FilledButtonStyle,
+      //   // ui.Button.filled(
+      //   //     // onPressed: () {},
+      // ),
       SizedBox(
         width: 10,
       ),
@@ -75,18 +73,18 @@ class OverViewPage extends StatelessWidget {
       SizedBox(
         width: 10,
       ),
-      Button.text(
-        onPressed: () {
-          Fatima.bottomSheet(Container(
-            height: 200,
-            child: Card(child: Text("Hi")),
-          ));
-        },
-        child: Icon(Icons.ac_unit_rounded),
-        // style: FilledButtonStyle,
-        // ui.Button.filled(
-        //     // onPressed: () {},
-      ),
+      // Button.text(
+      //   onPressed: () {
+      //     Fatima.bottomSheet(Container(
+      //       height: 200,
+      //       child: Card(child: Text("Hi")),
+      //     ));
+      //   },
+      //   child: Icon(Icons.ac_unit_rounded),
+      //   // style: FilledButtonStyle,
+      //   // ui.Button.filled(
+      //   //     // onPressed: () {},
+      // ),
     ];
   }
 }
