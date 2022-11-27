@@ -1,5 +1,5 @@
 import 'package:fatima/state_manager/src/controller/fatima_state.dart';
-import 'package:fatima/ui/fatima_ui_config.dart';
+import 'package:fatima/ui/src/ui_config/ui_config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -283,11 +283,11 @@ class FatimaController extends FullLifeCycleController {
   void changePrimaryColor(Color color) {
     _box.write("primaryColor", color.value);
 
-    uiConfig.lightTheme = uiConfig.lightTheme!.copyWith(
+    uiConfig.lightTheme = uiConfig.lightTheme.copyWith(
         colorScheme: ColorScheme.light(
       primary: color,
     ));
-    uiConfig.darkTheme = uiConfig.darkTheme!.copyWith(
+    uiConfig.darkTheme = uiConfig.darkTheme.copyWith(
         colorScheme: ColorScheme.dark(
       primary: color,
     ));

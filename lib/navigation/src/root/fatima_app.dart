@@ -1,7 +1,7 @@
 // import 'package:fatima/core/log.dart';
 import 'package:fatima/navigation/src/router_report.dart';
 import 'package:fatima/state_manager/src/controller/fatima_state.dart';
-import 'package:fatima/ui/fatima_ui_config.dart';
+import 'package:fatima/ui/src/ui_config/ui_config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -259,11 +259,8 @@ class FatimaApp extends StatelessWidget {
           title: title,
           onGenerateTitle: onGenerateTitle,
           color: controller.uiConfig.primaryColor(),
-          theme: controller.uiConfig.lightTheme ?? ThemeData.fallback(),
-          darkTheme: controller.uiConfig.darkTheme ??
-              controller.uiConfig.darkTheme ??
-              controller.uiConfig.lightTheme ??
-              ThemeData.fallback(),
+          theme: controller.uiConfig.lightTheme,
+          darkTheme: controller.uiConfig.darkTheme,
           themeMode:
               controller.uiConfig.themeMode ?? controller.uiConfig.themeMode,
           locale: Fatima.locale ?? locale,

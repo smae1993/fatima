@@ -132,7 +132,7 @@ extension ExtensionDialog on FatimaInterface {
             rootNavigator:
                 true); //overlay context will always return the root navigator
     return nav.push<T>(
-      GetDialogRoute<T>(
+      FatimaDialogRoute<T>(
         pageBuilder: pageBuilder,
         barrierDismissible: barrierDismissible,
         barrierLabel: barrierLabel,
@@ -189,7 +189,7 @@ extension ExtensionDialog on FatimaInterface {
         actions.add(TextButton(
           style: TextButton.styleFrom(
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
             shape: RoundedRectangleBorder(
                 side: BorderSide(
                     color: buttonColor ?? theme.colorScheme.secondary,

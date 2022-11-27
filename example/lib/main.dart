@@ -1,6 +1,6 @@
 import 'package:example/routes.dart';
+import 'package:example/styles.dart';
 import 'package:fatima/fatima.dart';
-import 'package:fatima/ui/fatima_ui_config.dart';
 import 'package:flutter/material.dart';
 
 Future<void> main() async {
@@ -22,10 +22,9 @@ class MyApp extends StatelessWidget {
       textDirection: TextDirection.ltr,
 
       // color: Colors.blueGrey,
-      uiConfig: UIConfig(),
+      uiConfig: uiConfig,
       // scrollBehavior: MyCustomScrollBehavior(),
       debugShowCheckedModeBanner: false,
-
       pages: routes,
     );
   }

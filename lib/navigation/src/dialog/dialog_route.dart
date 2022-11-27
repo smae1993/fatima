@@ -2,8 +2,8 @@ import 'package:flutter/widgets.dart';
 
 import '../router_report.dart';
 
-class GetDialogRoute<T> extends PopupRoute<T> {
-  GetDialogRoute({
+class FatimaDialogRoute<T> extends PopupRoute<T> {
+  FatimaDialogRoute({
     required RoutePageBuilder pageBuilder,
     bool barrierDismissible = true,
     String? barrierLabel,
@@ -51,9 +51,9 @@ class GetDialogRoute<T> extends PopupRoute<T> {
   Widget buildPage(BuildContext context, Animation<double> animation,
       Animation<double> secondaryAnimation) {
     return Semantics(
-      child: widget(context, animation, secondaryAnimation),
       scopesRoute: true,
       explicitChildNodes: true,
+      child: widget(context, animation, secondaryAnimation),
     );
   }
 

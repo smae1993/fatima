@@ -15,7 +15,7 @@ String? _extractRouteName(Route? route) {
     return route.routeName;
   }
 
-  if (route is GetDialogRoute) {
+  if (route is FatimaDialogRoute) {
     return 'DIALOG ${route.hashCode}';
   }
 
@@ -229,7 +229,7 @@ class _RouteData {
     return _RouteData(
       name: _extractRouteName(route),
       isGetPageRoute: route is FatimaPageRoute,
-      isDialog: route is GetDialogRoute,
+      isDialog: route is FatimaDialogRoute,
       isBottomSheet: route is FatimaModalBottomSheetRoute,
     );
   }
