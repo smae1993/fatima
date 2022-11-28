@@ -3,21 +3,17 @@ import 'package:flutter/material.dart';
 
 UIConfig uiConfig = UIConfig(
     // defStyle: Style(),
-    styles: []);
+    styles: [appBarDark, appBarLight]);
 
-Style defaultLight =
-    Style(mode: ThemeMode.light, tag: StyleTag.main, primary: Colors.brown);
-Style defaultDark =
-    Style(mode: ThemeMode.dark, tag: StyleTag.main, primary: Colors.pinkAccent);
+Style defaultLight = LightStyle(primary: Colors.brown);
+Style defaultDark = DarkStyle(primary: Colors.pinkAccent);
 
-Style appBarLight = Style(
-  mode: ThemeMode.light,
+Style appBarLight = LightStyle(
   tag: StyleTag.appBar,
   background: Colors.amber,
 );
 
-Style appBarDark = Style(
-  mode: ThemeMode.dark,
+Style appBarDark = DarkStyle(
   tag: StyleTag.appBar,
   background: Colors.green,
 );

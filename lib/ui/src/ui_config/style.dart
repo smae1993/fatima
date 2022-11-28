@@ -89,6 +89,40 @@ class Style {
   }
 }
 
+class DarkStyle extends Style {
+  DarkStyle(
+      {super.tag = StyleTag.all,
+      super.borderRadius = 8.0,
+      super.borderWidth = 1.0,
+      super.padding,
+      super.fontFamily,
+      super.fontSize,
+      super.fontWeight,
+      super.background,
+      super.primary,
+      super.foreground,
+      super.border,
+      super.secondary})
+      : super(mode: ThemeMode.dark);
+}
+
+class LightStyle extends Style {
+  LightStyle(
+      {super.tag = StyleTag.main,
+      super.borderRadius = 8.0,
+      super.borderWidth = 1.0,
+      super.padding,
+      super.fontFamily,
+      super.fontSize,
+      super.fontWeight,
+      super.background,
+      super.primary,
+      super.foreground,
+      super.border,
+      super.secondary})
+      : super(mode: ThemeMode.light);
+}
+
 enum StyleTag {
   main,
   all,
