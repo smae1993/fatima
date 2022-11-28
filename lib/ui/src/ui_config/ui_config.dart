@@ -1,8 +1,6 @@
 import 'package:fatima/fatima.dart';
+import 'package:fatima/ui/src/ui_config/theme_builder.dart';
 import 'package:flutter/material.dart';
-
-part 'button_theme.dart';
-part 'appbar_theme.dart';
 
 class UIConfig {
   // final _box = Storage();
@@ -10,60 +8,51 @@ class UIConfig {
   late ThemeData lightTheme;
   late ThemeData darkTheme;
   ThemeMode? themeMode = ThemeMode.system;
-  List<Style> defaultStyle = [];
+  List<Style> defaultStyles = [];
 
   UIConfig({
     ThemeData? light,
     ThemeData? dark,
-    List<Style>? defStyle,
+    List<Style>? styles,
     // Style? appbar,
   }) {
-    defaultStyle = defStyle ?? [];
-    // appbarStyle = appbar ??
-    //     Style(
-    //         darkPallet: DarkPallet(
-    //             background: const Color(0xFF3A3A3B), border: Colors.red),
-    //         lightPallet: LightPallet());
-
+    defaultStyles = styles ?? [];
     _initializeThemes(light, dark);
   }
 
   void _initializeThemes(ThemeData? light, ThemeData? dark) {
-    // lightTheme = light ?? _generateThemeData(defaultStyle.lightPallet);
-    // darkTheme = dark ?? _generateThemeData(defaultStyle.darkPallet);
-    // darkTheme = ThemeData(
-    //   typography: Typography.material2021(),
-    //     buttonTheme: ButtonThemeData(),
-    //     fontFamily: 'Vazir',
-
-    //     // elevatedButtonTheme: ElevatedButtonThemeData(
-    //     //     style: ElevatedButton.styleFrom(
-    //     //   foregroundColor: Colors.white,
-    //     //   backgroundColor: Color.fromARGB(232, 113, 31, 31),
-    //     //   padding: const EdgeInsets.all(10.0),
-    //     //   shape: RoundedRectangleBorder(
-    //     //     borderRadius: BorderRadius.circular(10.0),
-    //     //   ),
-    //     // )),
-    //     // appBarTheme: const AppBarTheme(backgroundColor: Color(0xFF282828)),
-    //     dialogTheme: DialogTheme(),
-    //     colorScheme: ColorScheme.dark(
-    //       primary: Color(_box.read<int>("primaryColor")!),
-    //     ));
+    lightTheme = light ??
+        _generateThemeData(
+            ThemeMode.light,
+            defaultStyles
+                .where((element) => element.mode == ThemeMode.light)
+                .toList());
+    darkTheme = dark ??
+        _generateThemeData(
+            ThemeMode.dark,
+            defaultStyles
+                .where((element) => element.mode == ThemeMode.dark)
+                .toList());
   }
 
-  // ThemeData _generateThemeData(StylePallet pallet) {
-  //   return ThemeData(
-  //     fontFamily: defaultStyle.fontFamily ?? 'Vazir',
-  //     backgroundColor: pallet.background,
-  //     primaryColor: pallet.primary,
-  //     appBarTheme: _appBarTheme(themeMode!, appbarStyle),
-  //     // appBarTheme: AppBarTheme(color: ),
-  //     // elevatedButtonTheme: ElevatedButtonThemeData(style: ButtonStyle()),
-  //     // buttonTheme: ButtonThemeData(alignedDropdown: ),
-  //     colorScheme: pallet.colorScheme(),
-  //   );
-  // }
+  ThemeData _generateThemeData(ThemeMode mode, List<Style> styles) {
+    Style? mainStyle = styles.firstOrNull;
+    for (var element in styles.where(
+        (element) => element.compareTags([StyleTag.all, StyleTag.main]))) {
+      mainStyle!.merge(element);
+    }
+
+    mainStyle ??=
+        mode == ThemeMode.light ? defaultLightStyle() : defaultDarkStyle();
+
+    return ThemeData(
+      fontFamily: mainStyle.fontFamily ?? 'Vazir',
+      backgroundColor: mainStyle.background,
+      primaryColor: mainStyle.primary,
+      appBarTheme: ThemeBuilder<AppBar>(styles: styles).generate(),
+      colorScheme: mainStyle.colorScheme(),
+    );
+  }
 
   Color primaryColor() {
     return getTheme().primaryColor;
@@ -75,5 +64,16 @@ class UIConfig {
 
   bool changePrimaryColor() {
     return true;
+  }
+
+  Style defaultLightStyle() {
+    return Style(
+      mode: ThemeMode.light,
+      primary: Colors.red,
+    );
+  }
+
+  Style defaultDarkStyle() {
+    return Style(mode: ThemeMode.dark, primary: Colors.blueAccent);
   }
 }

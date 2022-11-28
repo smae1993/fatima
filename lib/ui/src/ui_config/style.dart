@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 class Style {
   ThemeMode mode;
   StyleTag tag = StyleTag.all;
-  // late LightPallet lightPallet;
-  // late DarkPallet darkPallet;
+
   /// ----------------------- Colors
   Color? background;
   Color? primary;
@@ -34,15 +33,20 @@ class Style {
   ///
   double? blur;
 
-  Style({
-    required this.mode,
-    this.borderRadius = 8.0,
-    this.borderWidth = 1.0,
-    this.padding,
-    this.fontFamily,
-    this.fontSize,
-    this.fontWeight,
-  }) {}
+  Style(
+      {required this.mode,
+      this.tag = StyleTag.all,
+      this.borderRadius = 8.0,
+      this.borderWidth = 1.0,
+      this.padding,
+      this.fontFamily,
+      this.fontSize,
+      this.fontWeight,
+      this.background,
+      this.primary,
+      this.foreground,
+      this.border,
+      this.secondary}) {}
 
   ColorScheme colorScheme() {
     ColorScheme scheme = mode == ThemeMode.light
@@ -79,47 +83,11 @@ class Style {
     maxHeight = newStyle.maxHeight ?? maxHeight;
     blur = newStyle.blur ?? blur;
   }
+
+  bool compareTags(List<StyleTag> tags) {
+    return tags.any((element) => element == tag);
+  }
 }
-
-// abstract class StylePallet {
-//   StylePallet(
-//       {this.background,
-//       this.primary,
-//       this.foreground,
-//       this.border,
-//       this.secondary,
-//       this.shadow});
-
-//   ThemeMode mode();
-// }
-
-// class DarkPallet extends StylePallet {
-//   DarkPallet(
-//       {super.background,
-//       super.primary,
-//       super.foreground,
-//       super.border,
-//       super.secondary,
-//       super.shadow}) {
-//     background = background ?? const Color(0xFF464748);
-//     primary = primary ?? const Color(0xFF99A799);
-//     foreground = foreground ?? const Color(0xFFEEEEEE);
-//     border = border ?? const Color(0xFF323333);
-//   }
-//   @override
-//   ThemeMode mode() => ThemeMode.dark;
-// }
-
-// class LightPallet extends StylePallet {
-//   LightPallet() {
-//     background = const Color(0xFFFEF5ED);
-//     primary = const Color(0xFF99A799);
-//     foreground = const Color(0xFF373737);
-//     border = const Color(0xFFB1AAA4);
-//   }
-//   @override
-//   ThemeMode mode() => ThemeMode.light;
-// }
 
 enum StyleTag {
   main,
@@ -128,4 +96,6 @@ enum StyleTag {
   button,
   card,
   textField,
+  icon,
+  text,
 }
