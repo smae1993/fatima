@@ -11,12 +11,14 @@ class Style {
   Color? border;
   Color? secondary;
   Color? shadow;
+  double? opacity;
 
   ///
   double? borderRadius;
   double? borderWidth;
   EdgeInsets? padding;
   EdgeInsets? margin;
+  double? elevation;
 
   /// ---------------------- Text Style
   String? fontFamily;
@@ -25,8 +27,9 @@ class Style {
   TextAlign? textAlign;
 
   /// ---------------------- Sizing
-  Size? size;
-
+  double? size;
+  double? width;
+  double? height;
   double? maxWidth;
   double? maxHeight;
 
@@ -87,6 +90,21 @@ class Style {
   bool compareTags(List<StyleTag> tags) {
     return tags.any((element) => element == tag);
   }
+
+  bool hasBorder() => (border != null || borderWidth != null);
+  bool hasShape() => hasBorder() || borderRadius != null;
+
+  ShapeBorder? shape() => hasShape()
+      ? RoundedRectangleBorder(
+          side: hasBorder()
+              ? BorderSide(
+                  color: border ?? colorScheme().background,
+                  width: borderWidth!,
+                )
+              : BorderSide.none,
+          borderRadius: BorderRadius.circular(borderRadius ?? 8), // <-- Radius
+        )
+      : null;
 }
 
 class DarkStyle extends Style {
@@ -132,4 +150,5 @@ enum StyleTag {
   textField,
   icon,
   text,
+  radio,
 }

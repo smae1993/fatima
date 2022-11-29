@@ -2,22 +2,22 @@ import 'package:fatima/ui/src/ui_config/style.dart';
 import 'package:fatima/ui/src/ui_config/theme_builder_service.dart';
 import 'package:flutter/material.dart';
 
-class AppbarThemeBuilder extends ThemeBuilderService {
-  AppbarThemeBuilder(List<Style> styles)
+class CardThemeBuilder extends ThemeBuilderService {
+  CardThemeBuilder(List<Style> styles)
       : super(styles
-            .where((element) =>
-                element.compareTags([StyleTag.all, StyleTag.appBar]))
+            .where(
+                (element) => element.compareTags([StyleTag.all, StyleTag.card]))
             .toList());
 
   @override
   generate(dynamic theme) {
     if (theme == null) {
       if (style != null) {
-        return AppBarTheme(
-          backgroundColor: style!.background,
+        return CardTheme(
+          color: style!.background,
           shape: style!.shape(),
           elevation: style!.elevation,
-          foregroundColor: style!.foreground,
+          margin: style!.margin,
           shadowColor: style!.shadow,
         );
       } else {
@@ -25,21 +25,21 @@ class AppbarThemeBuilder extends ThemeBuilderService {
       }
     } else {
       if (style != null) {
-        return (theme as AppBarTheme).copyWith(
-          backgroundColor: style!.background ?? theme.backgroundColor,
+        return (theme as CardTheme).copyWith(
+          color: style!.background ?? theme.color,
           shape: style!.shape() ?? theme.shape,
           elevation: style!.elevation ?? theme.elevation,
-          foregroundColor: style!.foreground ?? theme.foregroundColor,
+          margin: style!.margin ?? theme.margin,
           shadowColor: style!.shadow ?? theme.shadowColor,
         );
       } else {
-        return theme as AppBarTheme;
+        return theme as CardTheme;
       }
     }
   }
 
   @override
   ThemeData mix(ThemeData data) {
-    return data.copyWith(appBarTheme: generate(data.appBarTheme));
+    return data.copyWith(cardTheme: generate(data.cardTheme));
   }
 }

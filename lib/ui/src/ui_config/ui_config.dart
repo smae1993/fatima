@@ -50,6 +50,11 @@ class UIConfig {
       backgroundColor: mainStyle.background,
       primaryColor: mainStyle.primary,
       appBarTheme: ThemeBuilder<AppBar>(styles: styles).generate(),
+      cardTheme: ThemeBuilder<Card>(styles: styles).generate(),
+      iconTheme: ThemeBuilder<Icon>(styles: styles).generate(),
+      textTheme: ThemeBuilder<Text>(styles: styles).generate(), // Complex
+      radioTheme: ThemeBuilder<Radio>(styles: styles).generate(),
+
       colorScheme: mainStyle.colorScheme(),
     );
   }
