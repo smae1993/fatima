@@ -31,6 +31,7 @@ class CardThemeBuilder extends ThemeBuilderService {
           elevation: style!.elevation ?? theme.elevation,
           margin: style!.margin ?? theme.margin,
           shadowColor: style!.shadow ?? theme.shadowColor,
+          surfaceTintColor: style!.surfaceTint ?? theme.surfaceTintColor,
         );
       } else {
         return theme as CardTheme;

@@ -11,6 +11,7 @@ class Style {
   Color? border;
   Color? secondary;
   Color? shadow;
+  Color? surfaceTint;
   double? opacity;
 
   ///
@@ -19,6 +20,8 @@ class Style {
   EdgeInsets? padding;
   EdgeInsets? margin;
   double? elevation;
+
+  AlignmentGeometry? alignment;
 
   /// ---------------------- Text Style
   String? fontFamily;
@@ -105,6 +108,8 @@ class Style {
           borderRadius: BorderRadius.circular(borderRadius ?? 8), // <-- Radius
         )
       : null;
+
+  TextStyle? textStyle() => TextStyle();
 }
 
 class DarkStyle extends Style {
