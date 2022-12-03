@@ -52,7 +52,7 @@ class UIConfig {
       appBarTheme: ThemeBuilder<AppBar>(styles: styles).generate(),
       cardTheme: ThemeBuilder<Card>(styles: styles).generate(),
       iconTheme: ThemeBuilder<Icon>(styles: styles).generate(),
-      textTheme: ThemeBuilder<Text>(styles: styles).generate(), // Complex
+      textTheme: ThemeBuilder<Text>(styles: styles).generate(), // Complicated
       radioTheme: ThemeBuilder<Radio>(styles: styles).generate(),
       dialogTheme: ThemeBuilder<Dialog>(styles: styles).generate(),
 
