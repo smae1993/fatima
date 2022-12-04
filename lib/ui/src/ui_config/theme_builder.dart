@@ -1,5 +1,6 @@
 import 'package:fatima/fatima.dart';
 import 'package:fatima/ui/src/ui_config/theme_builder_service.dart';
+import 'package:fatima/ui/src/ui_config/theme_builders/switch_builder.dart';
 import 'package:flutter/material.dart';
 
 import 'builders.dart';
@@ -33,6 +34,14 @@ class ThemeBuilder<T extends Widget> {
         return RadioThemeBuilder(styles);
       case Dialog:
         return DialogThemeBuilder(styles);
+      case Drawer:
+        return DrawerThemeBuilder(styles);
+      case Slider:
+        return DialogThemeBuilder(styles);
+      case Switch:
+        return SwitchThemeBuilder(styles);
+      case TabBar:
+        return SwitchThemeBuilder(styles);
       default:
         return UnknownBuilder(styles);
     }

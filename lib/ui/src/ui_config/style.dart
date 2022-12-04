@@ -156,4 +156,7 @@ enum StyleTag {
   icon,
   text,
   radio,
+  drawer,
+  slider,
+  tabBar,
 }

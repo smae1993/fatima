@@ -2,49 +2,43 @@ import 'package:fatima/ui/src/ui_config/style.dart';
 import 'package:fatima/ui/src/ui_config/theme_builder_service.dart';
 import 'package:flutter/material.dart';
 
-/// 3/5 Complete
-
-class DialogThemeBuilder extends ThemeBuilderService {
-  DialogThemeBuilder(List<Style> styles)
+/// 4/5 Complete
+class DrawerThemeBuilder extends ThemeBuilderService {
+  DrawerThemeBuilder(List<Style> styles)
       : super(styles
-            .where(
-                (element) => element.compareTags([StyleTag.all, StyleTag.text]))
+            .where((element) =>
+                element.compareTags([StyleTag.all, StyleTag.drawer]))
             .toList());
 
   @override
   generate(dynamic theme) {
     if (theme == null) {
       if (style != null) {
-        return DialogTheme(
-          alignment: style!.alignment,
+        return DrawerThemeData(
           backgroundColor: style!.background,
-          iconColor: style!.foreground,
           shape: style!.shape(),
           elevation: style!.elevation,
-
-          // actionsPadding: ???
-          // titleTextStyle:
+          width: style!.width,
         );
       } else {
         return null;
       }
     } else {
       if (style != null) {
-        return (theme as DialogTheme).copyWith(
-          alignment: style!.alignment ?? theme.alignment,
+        return (theme as DrawerThemeData).copyWith(
           backgroundColor: style!.background ?? theme.backgroundColor,
-          iconColor: style!.foreground ?? theme.iconColor,
           shape: style!.shape() ?? theme.shape,
           elevation: style!.elevation ?? theme.elevation,
+          width: style!.width ?? theme.width,
         );
       } else {
-        return theme as DialogTheme;
+        return theme as DrawerThemeData;
       }
     }
   }
 
   @override
   ThemeData mix(ThemeData data) {
-    return data.copyWith(dialogTheme: generate(data.dialogTheme));
+    return data.copyWith(drawerTheme: generate(data.drawerTheme));
   }
 }

@@ -55,6 +55,10 @@ class UIConfig {
       textTheme: ThemeBuilder<Text>(styles: styles).generate(), // Complicated
       radioTheme: ThemeBuilder<Radio>(styles: styles).generate(),
       dialogTheme: ThemeBuilder<Dialog>(styles: styles).generate(),
+      drawerTheme: ThemeBuilder<Drawer>(styles: styles).generate(),
+      sliderTheme: ThemeBuilder<Slider>(styles: styles).generate(),
+      switchTheme: ThemeBuilder<Switch>(styles: styles).generate(),
+      tabBarTheme: ThemeBuilder<TabBar>(styles: styles).generate(),
 
       colorScheme: mainStyle.colorScheme(),
     );
