@@ -59,7 +59,12 @@ class UIConfig {
       sliderTheme: ThemeBuilder<Slider>(styles: styles).generate(),
       switchTheme: ThemeBuilder<Switch>(styles: styles).generate(),
       tabBarTheme: ThemeBuilder<TabBar>(styles: styles).generate(),
-
+      listTileTheme: ThemeBuilder<ListTile>(styles: styles).generate(),
+      checkboxTheme: ThemeBuilder<Checkbox>(styles: styles).generate(),
+      snackBarTheme: ThemeBuilder<SnackBar>(styles: styles).generate(),
+      bottomSheetTheme: ThemeBuilder<BottomSheet>(styles: styles).generate(),
+      expansionTileTheme:
+          ThemeBuilder<ExpansionTile>(styles: styles).generate(),
       colorScheme: mainStyle.colorScheme(),
     );
   }

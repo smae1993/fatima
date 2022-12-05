@@ -6,3 +6,8 @@ export 'theme_builders/radio_builder.dart';
 export 'theme_builders/text_builder.dart';
 export 'theme_builders/unknown_builder.dart';
 export 'theme_builders/drawer_builder.dart';
+export 'theme_builders/check_box_builder.dart';
+export 'theme_builders/list_tile_builder.dart';
+export 'theme_builders/snack_bar_builder.dart';
+export 'theme_builders/switch_builder.dart';
+export 'theme_builders/tab_bar_builder.dart';

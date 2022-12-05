@@ -151,6 +151,9 @@ enum StyleTag {
   all,
   appBar,
   button,
+  textButton,
+  elevatedButton,
+
   card,
   textField,
   icon,
@@ -159,4 +162,12 @@ enum StyleTag {
   drawer,
   slider,
   tabBar,
+  listTile,
+  checkBox,
+  snackBar,
+  bottomSheet,
+  expansionTile,
+  toggleButton,
+  progressIndicator,
+  fab,
 }

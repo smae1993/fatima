@@ -1,6 +1,8 @@
 import 'package:fatima/fatima.dart';
 import 'package:fatima/ui/src/ui_config/theme_builder_service.dart';
-import 'package:fatima/ui/src/ui_config/theme_builders/switch_builder.dart';
+import 'package:fatima/ui/src/ui_config/theme_builders/bottom_sheet_builder.dart';
+import 'package:fatima/ui/src/ui_config/theme_builders/expansion_tile_builder.dart';
+
 import 'package:flutter/material.dart';
 
 import 'builders.dart';
@@ -41,7 +43,17 @@ class ThemeBuilder<T extends Widget> {
       case Switch:
         return SwitchThemeBuilder(styles);
       case TabBar:
-        return SwitchThemeBuilder(styles);
+        return TabBarThemeBuilder(styles);
+      case ListTile:
+        return ListTileThemeBuilder(styles);
+      case CheckboxListTile:
+        return CheckBoxThemeBuilder(styles);
+      case SnackBar:
+        return SnackBarThemeBuilder(styles);
+      case BottomSheet:
+        return BottomSheetThemeBuilder(styles);
+      case ExpansionTile:
+        return ExpansionTileThemeBuilder(styles);
       default:
         return UnknownBuilder(styles);
     }
