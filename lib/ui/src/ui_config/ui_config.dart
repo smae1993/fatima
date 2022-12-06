@@ -65,6 +65,14 @@ class UIConfig {
       bottomSheetTheme: ThemeBuilder<BottomSheet>(styles: styles).generate(),
       expansionTileTheme:
           ThemeBuilder<ExpansionTile>(styles: styles).generate(),
+
+      ///
+      toggleButtonsTheme:
+          ThemeBuilder<ToggleButtons>(styles: styles).generate(),
+      progressIndicatorTheme:
+          ThemeBuilder<ProgressIndicator>(styles: styles).generate(),
+      floatingActionButtonTheme:
+          ThemeBuilder<FloatingActionButton>(styles: styles).generate(),
       colorScheme: mainStyle.colorScheme(),
     );
   }

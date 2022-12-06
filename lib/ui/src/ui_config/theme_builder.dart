@@ -2,6 +2,9 @@ import 'package:fatima/fatima.dart';
 import 'package:fatima/ui/src/ui_config/theme_builder_service.dart';
 import 'package:fatima/ui/src/ui_config/theme_builders/bottom_sheet_builder.dart';
 import 'package:fatima/ui/src/ui_config/theme_builders/expansion_tile_builder.dart';
+import 'package:fatima/ui/src/ui_config/theme_builders/fab_builder.dart';
+import 'package:fatima/ui/src/ui_config/theme_builders/progress_indicator_builder.dart';
+import 'package:fatima/ui/src/ui_config/theme_builders/toggle_buttons_builder.dart';
 
 import 'package:flutter/material.dart';
 
@@ -54,6 +57,14 @@ class ThemeBuilder<T extends Widget> {
         return BottomSheetThemeBuilder(styles);
       case ExpansionTile:
         return ExpansionTileThemeBuilder(styles);
+      case ToggleButtons:
+        return ToggleButtonsThemeBuilder(styles);
+      case ProgressIndicator:
+      case LinearProgressIndicator:
+      case CircularProgressIndicator:
+        return ProgressIndicatorThemeBuilder(styles);
+      case FloatingActionButton:
+        return FloatingActionButtonThemeBuilder(styles);
       default:
         return UnknownBuilder(styles);
     }
