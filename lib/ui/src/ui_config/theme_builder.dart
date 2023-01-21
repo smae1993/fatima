@@ -1,10 +1,5 @@
 import 'package:fatima/fatima.dart';
 import 'package:fatima/ui/src/ui_config/theme_builder_service.dart';
-import 'package:fatima/ui/src/ui_config/theme_builders/bottom_sheet_builder.dart';
-import 'package:fatima/ui/src/ui_config/theme_builders/expansion_tile_builder.dart';
-import 'package:fatima/ui/src/ui_config/theme_builders/fab_builder.dart';
-import 'package:fatima/ui/src/ui_config/theme_builders/progress_indicator_builder.dart';
-import 'package:fatima/ui/src/ui_config/theme_builders/toggle_buttons_builder.dart';
 
 import 'package:flutter/material.dart';
 
@@ -42,7 +37,7 @@ class ThemeBuilder<T extends Widget> {
       case Drawer:
         return DrawerThemeBuilder(styles);
       case Slider:
-        return DialogThemeBuilder(styles);
+        return SliderThemeBuilder(styles);
       case Switch:
         return SwitchThemeBuilder(styles);
       case TabBar:
