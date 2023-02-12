@@ -3,7 +3,7 @@ import 'package:fatima/ui/src/ui_config/theme_builder_service.dart';
 
 import 'package:flutter/material.dart';
 
-import 'builders.dart';
+import 'index.dart';
 
 class ThemeBuilder<T extends Widget> {
   late ThemeBuilderService _service;
