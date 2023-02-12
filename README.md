@@ -2,7 +2,7 @@
 
 # Attention
 
-Fatima is deprecated. please use [Flower](https://github.com/smae1993/fatima/blob/master/example/lib/main.dart) instead.
+Fatima is deprecated. please use [Flower](https://pub.dev/packages/flower) instead.
 
 # License
 Copyright (c) 2020 Sayed Mohammad Amin Emrani
